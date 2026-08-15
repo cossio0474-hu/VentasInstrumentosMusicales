@@ -4,18 +4,21 @@
  */
 package com.mycompany.ventainstrumentosmusicales.gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
-public class GUIPrincipal1 extends javax.swing.JFrame {
+public class GUIPrincipal extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIPrincipal1.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIPrincipal.class.getName());
 
     /**
      * Creates new form GUIPrincipal
      */
-    public GUIPrincipal1() {
+    public GUIPrincipal() {
+        
         initComponents();
     }
 
@@ -42,14 +45,17 @@ public class GUIPrincipal1 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuArchivo = new javax.swing.JMenu();
+        menuItemSalir = new javax.swing.JMenuItem();
+        menuInstrumentoCuerda = new javax.swing.JMenu();
+        menuItemAdicionarCuerda = new javax.swing.JMenuItem();
+        menuItemListarCuerda = new javax.swing.JMenuItem();
+        menuInstrumentoViento = new javax.swing.JMenu();
+        menuItemAdicionarViento = new javax.swing.JMenuItem();
+        menuItemListarViento = new javax.swing.JMenuItem();
+        menuAyuda = new javax.swing.JMenu();
+        menuItemAutores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -117,7 +123,7 @@ public class GUIPrincipal1 extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(400, 400, 400)
                                         .addComponent(jLabel6)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 9, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,10 +160,9 @@ public class GUIPrincipal1 extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,35 +181,49 @@ public class GUIPrincipal1 extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Archivo");
+        menuArchivo.setText("Archivo");
 
-        jMenuItem4.setText("Salir");
-        jMenuItem4.addActionListener(this::jMenuItem4ActionPerformed);
-        jMenu1.add(jMenuItem4);
+        menuItemSalir.setText("Salir");
+        menuItemSalir.addActionListener(this::menuItemSalirActionPerformed);
+        menuArchivo.add(menuItemSalir);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuArchivo);
 
-        jMenu2.setText("InstrumentoCuerda");
+        menuInstrumentoCuerda.setText("InstrumentoCuerda");
 
-        jMenuItem1.setText("Adicionar InstrumentoCuerda");
+        menuItemAdicionarCuerda.setText("Adicionar InstrumentoCuerda");
+        menuItemAdicionarCuerda.addActionListener(this::menuItemAdicionarCuerdaActionPerformed);
+        menuInstrumentoCuerda.add(menuItemAdicionarCuerda);
+
+        menuItemListarCuerda.setText("Listar InstrumentoCuerda");
+        menuItemListarCuerda.addActionListener(this::menuItemListarCuerdaActionPerformed);
+        menuInstrumentoCuerda.add(menuItemListarCuerda);
+
+        jMenuBar1.add(menuInstrumentoCuerda);
+
+        menuInstrumentoViento.setText("InstrumentoViento");
+
+        menuItemAdicionarViento.setText("Adicionar InstrumentoViento");
+        menuItemAdicionarViento.addActionListener(this::menuItemAdicionarVientoActionPerformed);
+        menuInstrumentoViento.add(menuItemAdicionarViento);
+
+        menuItemListarViento.setText("Listar InstrumentoViento");
+        menuItemListarViento.addActionListener(this::menuItemListarVientoActionPerformed);
+        menuInstrumentoViento.add(menuItemListarViento);
+
+        jMenuBar1.add(menuInstrumentoViento);
+
+        menuAyuda.setText("Ayuda");
+
+        menuItemAutores.setText("Autores");
+        menuItemAutores.addActionListener(this::menuItemAutoresActionPerformed);
+        menuAyuda.add(menuItemAutores);
+
+        jMenuItem1.setText("¿Como usarlo?");
         jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
-        jMenu2.add(jMenuItem1);
+        menuAyuda.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("InstrumentoViento");
-
-        jMenuItem2.setText("Adicionar InstrumentoViento");
-        jMenu3.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu5.setText("Ayuda");
-
-        jMenuItem3.setText("Autores");
-        jMenu5.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(menuAyuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -226,13 +245,39 @@ public class GUIPrincipal1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void menuItemAdicionarCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdicionarCuerdaActionPerformed
+        GUIAdicionarCuerda gui = new GUIAdicionarCuerda();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemAdicionarCuerdaActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_menuItemSalirActionPerformed
+
+    private void menuItemListarVientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarVientoActionPerformed
+        GUIListarViento gui = new GUIListarViento();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemListarVientoActionPerformed
+
+    private void menuItemAdicionarVientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdicionarVientoActionPerformed
+        GUIAdicionarViento gui = new GUIAdicionarViento();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemAdicionarVientoActionPerformed
+
+    private void menuItemAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAutoresActionPerformed
+        JOptionPane.showMessageDialog(null, "Hecho por Antonio Lopez, Juan Cossio y Sebastian Londoño", "Autores", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_menuItemAutoresActionPerformed
+
+    private void menuItemListarCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCuerdaActionPerformed
+        GUIListarCuerda gui = new GUIListarCuerda();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemListarCuerdaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JOptionPane.showMessageDialog(null, "Tienes un menú para gestionar dos tipos de instrumentos: Cuerda y Viento. ", "Tutorial", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "A partir de esto, puedes adicionar y listarlos teniendo en cuenta que adiciones primero el instrumento que desees", "Tutorial", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Suerte con eso y espero no encuentres bugs ;)", "Tutorial", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,7 +301,7 @@ public class GUIPrincipal1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIPrincipal1().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GUIPrincipal().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -269,18 +314,21 @@ public class GUIPrincipal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JMenu menuArchivo;
+    private javax.swing.JMenu menuAyuda;
+    private javax.swing.JMenu menuInstrumentoCuerda;
+    private javax.swing.JMenu menuInstrumentoViento;
+    private javax.swing.JMenuItem menuItemAdicionarCuerda;
+    private javax.swing.JMenuItem menuItemAdicionarViento;
+    private javax.swing.JMenuItem menuItemAutores;
+    private javax.swing.JMenuItem menuItemListarCuerda;
+    private javax.swing.JMenuItem menuItemListarViento;
+    private javax.swing.JMenuItem menuItemSalir;
     // End of variables declaration//GEN-END:variables
 }
