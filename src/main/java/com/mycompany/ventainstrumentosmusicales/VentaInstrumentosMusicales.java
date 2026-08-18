@@ -4,6 +4,8 @@
 
 package com.mycompany.ventainstrumentosmusicales;
 
+import com.mycompany.ventainstrumentosmusicales.gui.GUIPrincipal;
+
 /**
  *
  * @author cossi
@@ -11,6 +13,7 @@ package com.mycompany.ventainstrumentosmusicales;
 public class VentaInstrumentosMusicales {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        GUIPrincipal gui = new GUIPrincipal();
+        gui.setVisible(true);
     }
 }
