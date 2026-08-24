@@ -10,7 +10,7 @@ import java.time.LocalDate;
  *
  * @author cossi
  */
-public class InstrumentoViento extends Instrumento{
+public class InstrumentoViento extends Instrumento implements CalcularRegistroLlaves{
     
     private int numeroLlaves;
     private String tipoBoquilla;
@@ -42,5 +42,23 @@ public class InstrumentoViento extends Instrumento{
         this.tipoBoquilla = tipoBoquilla;
     }
     
-    
+    public int calcularRegistro(int numeroLLaves)
+    {
+        int registro; 
+        if(numeroLLaves <= 5)
+        {
+            registro = 1;
+        }
+        else if (numeroLLaves <= 10)
+        {
+            registro = 2;
+        }
+        else
+        {
+            registro = 3;
+        }
+        return registro;
+    }
+
+   
 }
