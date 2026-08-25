@@ -14,6 +14,7 @@ public class InstrumentoCuerda extends Instrumento{
     
     private int numeroCuerdas;
     private int numeroTrastes;
+    private AccesorioCuerda accesorio;
     
     public InstrumentoCuerda(int id, String nombre, LocalDate fechaVenta, double precio, int numeroCuerdas, int numeroTrastes)throws Exception
     {

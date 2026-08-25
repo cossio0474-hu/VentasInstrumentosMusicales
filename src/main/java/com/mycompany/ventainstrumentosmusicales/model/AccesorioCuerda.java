@@ -4,6 +4,8 @@
  */
 package com.mycompany.ventainstrumentosmusicales.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author UNIBAGUE
@@ -19,6 +21,7 @@ public class AccesorioCuerda {
     private tipo tipo; 
     private double precio;
     private String marca;
+    private   ArrayList<InstrumentoCuerda> istrumentos;
     
     public void setId(int id) {
         this.id = id;
