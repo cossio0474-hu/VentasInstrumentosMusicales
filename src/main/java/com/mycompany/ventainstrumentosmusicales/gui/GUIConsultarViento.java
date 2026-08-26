@@ -45,7 +45,6 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtId = new javax.swing.JTextField();
         txtFechaVenta = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         txtNumeroLlaves = new javax.swing.JTextField();
@@ -53,6 +52,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIConsultarViento");
@@ -89,8 +89,6 @@ public class GUIConsultarViento extends javax.swing.JFrame {
 
         txtNombre.addActionListener(this::txtNombreActionPerformed);
 
-        txtId.addActionListener(this::txtIdActionPerformed);
-
         txtFechaVenta.addActionListener(this::txtFechaVentaActionPerformed);
 
         txtPrecio.addActionListener(this::txtPrecioActionPerformed);
@@ -111,6 +109,9 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(this::btnConsultarActionPerformed);
 
+        lblId.setForeground(new java.awt.Color(255, 255, 255));
+        lblId.setText(" _________________");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -120,35 +121,25 @@ public class GUIConsultarViento extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3))
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(120, 120, 120)
-                                        .addComponent(btnEditar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                                        .addComponent(btnEliminar)
-                                        .addGap(5, 5, 5))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNumeroLlaves, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumeroLlaves, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(120, 120, 120)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)
+                        .addGap(5, 5, 5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2)
@@ -173,11 +164,11 @@ public class GUIConsultarViento extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsultar))
-                .addGap(42, 42, 42)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(lblId))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -234,7 +225,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // Validar que se haya buscado un instrumento previamente
     String idConsultaStr = txtConsulta.getText().trim();
-    if (idConsultaStr.isEmpty() || txtId.getText().trim().isEmpty()) {
+    if (idConsultaStr.isEmpty() || lblId.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para editarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
@@ -243,7 +234,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         int idOriginal = Integer.parseInt(idConsultaStr);
         
         // Recoger y convertir los valores de los campos
-        int idNuevo = Integer.parseInt(txtId.getText().trim());
+        int idNuevo = Integer.parseInt(lblId.getText().trim());
         String nombre = txtNombre.getText().trim();
         LocalDate fecha = LocalDate.parse(txtFechaVenta.getText().trim()); // Requiere formato YYYY-MM-DD
         double precio = Double.parseDouble(txtPrecio.getText().trim());
@@ -267,10 +258,6 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
@@ -290,7 +277,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String idConsultaStr = txtConsulta.getText().trim();
     
-    if (idConsultaStr.isEmpty() || txtId.getText().trim().isEmpty()) {
+    if (idConsultaStr.isEmpty() || lblId.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para eliminarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
@@ -308,7 +295,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
             
             // Limpiar todo después de eliminar
             txtConsulta.setText("");
-            txtId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
+            lblId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
             txtPrecio.setText(""); txtNumeroLlaves.setText(""); txtTipoBoquilla.setText("");
         }
         
@@ -337,7 +324,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
             InstrumentoViento viento = (InstrumentoViento) inst;
 
             // Llenar los campos con los valores del instrumento de viento
-            txtId.setText(String.valueOf(viento.getId()));
+            lblId.setText(String.valueOf(viento.getId()));
             txtNombre.setText(viento.getNombre());
             txtFechaVenta.setText(viento.getFechaVenta().toString()); 
             txtPrecio.setText(String.valueOf(viento.getPrecio()));
@@ -347,7 +334,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró ningún instrumento de viento con ese ID.", "No Encontrado / Tipo Incorrecto", JOptionPane.ERROR_MESSAGE);
             // Limpiar los campos si no se encuentra o es de otro tipo
-            txtId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
+            lblId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
             txtPrecio.setText(""); txtNumeroLlaves.setText(""); txtTipoBoquilla.setText("");
         }
         
@@ -396,9 +383,9 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblId;
     private javax.swing.JTextField txtConsulta;
     private javax.swing.JTextField txtFechaVenta;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroLlaves;
     private javax.swing.JTextField txtPrecio;

@@ -45,7 +45,6 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtId = new javax.swing.JTextField();
         txtFechaVenta = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         txtNumeroCuerdas = new javax.swing.JTextField();
@@ -53,6 +52,8 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIConsultarCuerda");
@@ -89,8 +90,6 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
         txtNombre.addActionListener(this::txtNombreActionPerformed);
 
-        txtId.addActionListener(this::txtIdActionPerformed);
-
         txtFechaVenta.addActionListener(this::txtFechaVentaActionPerformed);
 
         txtPrecio.addActionListener(this::txtPrecioActionPerformed);
@@ -111,6 +110,11 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(this::btnConsultarActionPerformed);
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblId.setForeground(new java.awt.Color(255, 255, 255));
+        lblId.setText("_______________");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -128,17 +132,23 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(103, 103, 103)
-                        .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addComponent(btnEliminar)
-                        .addGap(5, 5, 5))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(btnEditar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addComponent(btnEliminar)
+                                .addGap(5, 5, 5))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel4)
@@ -163,11 +173,12 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsultar))
-                .addGap(42, 42, 42)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(jLabel1)
+                    .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -227,10 +238,6 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
     private void txtFechaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaVentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaVentaActionPerformed
@@ -249,7 +256,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
        String idConsultaStr = txtConsulta.getText().trim();
-    if (idConsultaStr.isEmpty() || txtId.getText().trim().isEmpty()) {
+    if (idConsultaStr.isEmpty() || jLabel1.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para editarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
@@ -258,7 +265,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         int idOriginal = Integer.parseInt(idConsultaStr);
         
         // Recoger y convertir los valores de los campos
-        int idNuevo = Integer.parseInt(txtId.getText().trim());
+        int idNuevo = Integer.parseInt(jLabel1.getText().trim());
         String nombre = txtNombre.getText().trim();
         LocalDate fecha = LocalDate.parse(txtFechaVenta.getText().trim()); // Formato YYYY-MM-DD
         double precio = Double.parseDouble(txtPrecio.getText().trim());
@@ -286,7 +293,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String idConsultaStr = txtConsulta.getText().trim();
     
-    if (idConsultaStr.isEmpty() || txtId.getText().trim().isEmpty()) {
+    if (idConsultaStr.isEmpty() || jLabel1.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para eliminarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
@@ -303,7 +310,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
             
             // Limpiar todo después de eliminar
             txtConsulta.setText("");
-            txtId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
+            jLabel1.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
             txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
         }
         
@@ -331,7 +338,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
             InstrumentoCuerda cuerda = (InstrumentoCuerda) inst;
 
             // Llenar los campos con los valores del instrumento de cuerda
-            txtId.setText(String.valueOf(cuerda.getId()));
+            jLabel1.setText(String.valueOf(cuerda.getId()));
             txtNombre.setText(cuerda.getNombre());
             txtFechaVenta.setText(cuerda.getFechaVenta().toString()); 
             txtPrecio.setText(String.valueOf(cuerda.getPrecio()));
@@ -341,7 +348,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró ningún instrumento de cuerda con ese ID.", "No Encontrado / Tipo Incorrecto", JOptionPane.ERROR_MESSAGE);
             // Limpiar los campos 
-            txtId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
+            jLabel1.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
             txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
         }
         
@@ -381,6 +388,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -390,9 +398,9 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblId;
     private javax.swing.JTextField txtConsulta;
     private javax.swing.JTextField txtFechaVenta;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroCuerdas;
     private javax.swing.JTextField txtNumeroTrastes;
