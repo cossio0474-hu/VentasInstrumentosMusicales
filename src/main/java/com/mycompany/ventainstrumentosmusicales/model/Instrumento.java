@@ -17,20 +17,21 @@ public abstract class Instrumento {
     private double precio;
     private LocalDate fechaVenta;
 
-    public Instrumento(int id, String nombre) {
+    public Instrumento(int id, String nombre) throws Exception {
         this.id = id;
-        this.nombre = nombre;
+        setNombre(nombre);
     }
 
     public Instrumento(int id, String nombre, LocalDate fechaVenta, double precio) throws Exception {
-        this(id, nombre);
+        this.id = id;
         this.fechaVenta = fechaVenta;
+        setNombre(nombre);
         setPrecio(precio);
 
     }
 
     public void setPrecio(double precio) throws Exception {
-        if (precio >= 0) {
+        if (precio > 0) {
             this.precio = precio;
         } else {
             throw new Exception("Precio menor o igual a 0");
@@ -50,8 +51,16 @@ public abstract class Instrumento {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombre) throws Exception {
+       
+        if(nombre.isEmpty())
+        {
+            throw new Exception ("No se puede crear un instrumento sin un nombre");                 
+        }
+        else
+        {
+            this.nombre = nombre;
+        }
     }
 
     public double getPrecio() {

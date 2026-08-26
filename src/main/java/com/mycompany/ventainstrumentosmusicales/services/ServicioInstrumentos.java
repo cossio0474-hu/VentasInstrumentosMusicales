@@ -22,9 +22,6 @@ public class ServicioInstrumentos {
         instrumentos.put(instrumento.getId(), instrumento);
     }
     
-    public static Instrumento obtenerInstrumento(int id) {
-        return instrumentos.get(id);
-    }
     public static void deleteInstrumento(int id) throws Exception
     {
         if(instrumentos.values() != null)

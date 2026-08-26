@@ -107,18 +107,25 @@ public class GUIListarCuerda extends javax.swing.JFrame {
         modelo.setRowCount(0);
         for (Map.Entry<Integer, Instrumento> inst : instrumentos.entrySet()) {
             Integer cedula = inst.getKey();
-            InstrumentoCuerda doc = (InstrumentoCuerda) inst.getValue();
+            Instrumento instrumentoActual = inst.getValue();
+            
+            if(instrumentoActual instanceof InstrumentoCuerda)
+            {
+                InstrumentoCuerda doc = (InstrumentoCuerda) instrumentoActual;
+            
+            
+                Object[] fila = new Object[]{
+                    cedula,
+                    doc.getNombre(), 
+                    doc.getFechaVenta(),
+                    doc.getPrecio(),
+                    doc.getNumeroCuerdas(),
+                    doc.getNumeroTrastes()
+                };
+            
 
-            Object[] fila = new Object[]{
-                cedula,
-                doc.getNombre(), 
-                doc.getFechaVenta(),
-                doc.getPrecio(),
-                doc.getNumeroCuerdas(),
-                doc.getNumeroTrastes()
-            };
-
-            modelo.addRow(fila);
+                modelo.addRow(fila);
+            }
         }
 
     }//GEN-LAST:event_btnListarActionPerformed

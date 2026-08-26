@@ -193,7 +193,7 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
             
             id = Integer.parseInt(strId);
             
-            if (ServicioInstrumentos.obtenerInstrumento(id) != null) {
+            if (ServicioInstrumentos.buscarInstrumento(id) != null) {
                 JOptionPane.showMessageDialog(this, "Error: Ya existe un instrumento registrado con el ID " + id, "ID Duplicado", JOptionPane.WARNING_MESSAGE);
                 return; 
             }
