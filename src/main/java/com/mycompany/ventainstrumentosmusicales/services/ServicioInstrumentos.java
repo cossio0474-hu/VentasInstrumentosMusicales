@@ -62,4 +62,16 @@ public class ServicioInstrumentos {
         }
         return ins;
     }
+    
+    public double calculatVentas()
+    {
+        double sum = 0;
+        for (Instrumento instrumento : instrumentos.values()) {
+            if (instrumento != null) {
+                sum += instrumento.calcularPrecio();
+            }
+            
+        }
+        return sum;
+    }
 }

@@ -59,6 +59,12 @@ public class InstrumentoViento extends Instrumento implements CalcularRegistroLl
         }
         return registro;
     }
+    
+    public double calcularPrecio()
+    {
+        return getPrecio() * 1.2;
+                
+    }
 
    
 }

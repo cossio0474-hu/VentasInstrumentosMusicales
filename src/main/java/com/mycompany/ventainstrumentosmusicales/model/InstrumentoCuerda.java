@@ -49,4 +49,10 @@ public class InstrumentoCuerda extends Instrumento{
     {
         this.numeroTrastes = numeroTrastes;
     }
+    
+    public double calcularPrecio()
+    {
+        return getPrecio() * 1.1;
+                
+    }
 }
