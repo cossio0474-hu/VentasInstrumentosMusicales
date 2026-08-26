@@ -6,7 +6,7 @@ package com.mycompany.ventainstrumentosmusicales.model;
 
 /**
  *
- * @author cossi
+ * @author cossio
  */
 public interface CalcularRegistroLlaves {
     

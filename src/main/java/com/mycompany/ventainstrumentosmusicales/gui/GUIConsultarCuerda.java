@@ -8,20 +8,20 @@ import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
-import com.mycompany.ventainstrumentosmusicales.model.InstrumentoViento;
+import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 /**
  *
  * @author User
  */
-public class GUIConsultarViento extends javax.swing.JFrame {
+public class GUIConsultarCuerda extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIConsultarViento.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIConsultarCuerda.class.getName());
 
     /**
      * Creates new form GUIConsultarCuerda
      */
-    public GUIConsultarViento() {
+    public GUIConsultarCuerda() {
         initComponents();
     }
 
@@ -34,58 +34,58 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtConsulta = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txtConsulta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
         txtFechaVenta = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
-        txtNumeroLlaves = new javax.swing.JTextField();
-        txtTipoBoquilla = new javax.swing.JTextField();
+        txtNumeroCuerdas = new javax.swing.JTextField();
+        txtNumeroTrastes = new javax.swing.JTextField();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("GUIConsultarViento");
+        setTitle("GUIConsultarCuerda");
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel1.setText("Consultar Instrumento de Viento");
+        jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel3.setText("Consultar Instrumento de Cuerda");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 2, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inserta el ID del intrumento:");
+        jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 2, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Inserta el ID del intrumento:");
 
         txtConsulta.addActionListener(this::txtConsultaActionPerformed);
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ID:");
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nombre:");
-
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Precio:");
+        jLabel5.setText("ID:");
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Fecha de Venta:");
+        jLabel6.setText("Nombre:");
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Numero de Llaves:");
+        jLabel7.setText("Precio:");
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Tipo de Boquilla:");
+        jLabel8.setText("Fecha de Venta:");
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Número de Cuerdas:");
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Número de Trastes:");
 
         txtNombre.addActionListener(this::txtNombreActionPerformed);
 
@@ -95,9 +95,9 @@ public class GUIConsultarViento extends javax.swing.JFrame {
 
         txtPrecio.addActionListener(this::txtPrecioActionPerformed);
 
-        txtNumeroLlaves.addActionListener(this::txtNumeroLlavesActionPerformed);
+        txtNumeroCuerdas.addActionListener(this::txtNumeroCuerdasActionPerformed);
 
-        txtTipoBoquilla.addActionListener(this::txtTipoBoquillaActionPerformed);
+        txtNumeroTrastes.addActionListener(this::txtNumeroTrastesActionPerformed);
 
         btnEditar.setBackground(new java.awt.Color(255, 153, 0));
         btnEditar.setText("Editar");
@@ -111,129 +111,144 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(this::btnConsultarActionPerformed);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3))
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(120, 120, 120)
-                                        .addComponent(btnEditar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                                        .addComponent(btnEliminar)
-                                        .addGap(5, 5, 5))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNumeroLlaves, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(103, 103, 103)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)
+                        .addGap(5, 5, 5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel4)
                         .addGap(27, 27, 27)
                         .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addGap(31, 31, 31)
                         .addComponent(btnConsultar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(75, 75, 75))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabel1)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel3)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsultar))
                 .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
                     .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEditar)
                             .addComponent(btnEliminar))
                         .addGap(15, 15, 15)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtNumeroLlaves, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaActionPerformed
-    // Esto simula un clic en el botón Consultar cuando el usuario presiona Enter en el campo de texto
+        // Esto simula un clic en el botón Consultar cuando el usuario presiona Enter
     btnConsultar.doClick();
     }//GEN-LAST:event_txtConsultaActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
     private void txtFechaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaVentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaVentaActionPerformed
 
+    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioActionPerformed
+
+    private void txtNumeroCuerdasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroCuerdasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroCuerdasActionPerformed
+
+    private void txtNumeroTrastesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroTrastesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroTrastesActionPerformed
+
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // Validar que se haya buscado un instrumento previamente
-    String idConsultaStr = txtConsulta.getText().trim();
+       String idConsultaStr = txtConsulta.getText().trim();
     if (idConsultaStr.isEmpty() || txtId.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para editarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
@@ -245,47 +260,28 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         // Recoger y convertir los valores de los campos
         int idNuevo = Integer.parseInt(txtId.getText().trim());
         String nombre = txtNombre.getText().trim();
-        LocalDate fecha = LocalDate.parse(txtFechaVenta.getText().trim()); // Requiere formato YYYY-MM-DD
+        LocalDate fecha = LocalDate.parse(txtFechaVenta.getText().trim()); // Formato YYYY-MM-DD
         double precio = Double.parseDouble(txtPrecio.getText().trim());
-        int llaves = Integer.parseInt(txtNumeroLlaves.getText().trim());
-        String boquilla = txtTipoBoquilla.getText().trim();
+        int cuerdas = Integer.parseInt(txtNumeroCuerdas.getText().trim());
+        int trastes = Integer.parseInt(txtNumeroTrastes.getText().trim());
 
-        // Crear instancia con los nuevos datos
-        InstrumentoViento vientoActualizado = new InstrumentoViento(idNuevo, nombre, fecha, precio, llaves, boquilla);
+        // Crear instancia con los nuevos datos específicos de cuerda
+        InstrumentoCuerda cuerdaActualizado = new InstrumentoCuerda(idNuevo, nombre, fecha, precio, cuerdas, trastes);
         
         // Actualizar usando el servicio
-        ServicioInstrumentos.actualizarInstrumento(idOriginal, vientoActualizado);
+        ServicioInstrumentos.actualizarInstrumento(idOriginal, cuerdaActualizado);
         
         JOptionPane.showMessageDialog(this, "Instrumento actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         
     } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Revisa que ID, Precio y Número de Llaves sean numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Revisa que ID, Precio, Número de Cuerdas y Trastes sean numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
     } catch (DateTimeParseException e) {
         JOptionPane.showMessageDialog(this, "La fecha debe tener el formato YYYY-MM-DD.", "Error en Fecha", JOptionPane.ERROR_MESSAGE);
     } catch (Exception e) {
+        // Captura las excepciones de validación como "Numero de cuerdas menor o igual a 0"
         JOptionPane.showMessageDialog(this, "Error al actualizar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecioActionPerformed
-
-    private void txtNumeroLlavesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroLlavesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroLlavesActionPerformed
-
-    private void txtTipoBoquillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoBoquillaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoBoquillaActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String idConsultaStr = txtConsulta.getText().trim();
@@ -298,7 +294,6 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     try {
         int idOriginal = Integer.parseInt(idConsultaStr);
         
-        // Confirmar eliminación
         int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
         
         if (opcion == JOptionPane.YES_OPTION) {
@@ -309,7 +304,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
             // Limpiar todo después de eliminar
             txtConsulta.setText("");
             txtId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
-            txtPrecio.setText(""); txtNumeroLlaves.setText(""); txtTipoBoquilla.setText("");
+            txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
         }
         
     } catch (NumberFormatException e) {
@@ -330,25 +325,24 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     try {
         int idConsulta = Integer.parseInt(idStr);
         
-        // Buscar el instrumento en el servicio
         Instrumento inst = ServicioInstrumentos.buscarInstrumento(idConsulta); 
 
-        if (inst != null && inst instanceof InstrumentoViento) {
-            InstrumentoViento viento = (InstrumentoViento) inst;
+        if (inst != null && inst instanceof InstrumentoCuerda) {
+            InstrumentoCuerda cuerda = (InstrumentoCuerda) inst;
 
-            // Llenar los campos con los valores del instrumento de viento
-            txtId.setText(String.valueOf(viento.getId()));
-            txtNombre.setText(viento.getNombre());
-            txtFechaVenta.setText(viento.getFechaVenta().toString()); 
-            txtPrecio.setText(String.valueOf(viento.getPrecio()));
-            txtNumeroLlaves.setText(String.valueOf(viento.getNumeroLlaves())); 
-            txtTipoBoquilla.setText(viento.getTipoBoquilla()); 
+            // Llenar los campos con los valores del instrumento de cuerda
+            txtId.setText(String.valueOf(cuerda.getId()));
+            txtNombre.setText(cuerda.getNombre());
+            txtFechaVenta.setText(cuerda.getFechaVenta().toString()); 
+            txtPrecio.setText(String.valueOf(cuerda.getPrecio()));
+            txtNumeroCuerdas.setText(String.valueOf(cuerda.getNumeroCuerdas())); 
+            txtNumeroTrastes.setText(String.valueOf(cuerda.getNumeroTrastes())); 
             
         } else {
-            JOptionPane.showMessageDialog(this, "No se encontró ningún instrumento de viento con ese ID.", "No Encontrado / Tipo Incorrecto", JOptionPane.ERROR_MESSAGE);
-            // Limpiar los campos si no se encuentra o es de otro tipo
+            JOptionPane.showMessageDialog(this, "No se encontró ningún instrumento de cuerda con ese ID.", "No Encontrado / Tipo Incorrecto", JOptionPane.ERROR_MESSAGE);
+            // Limpiar los campos 
             txtId.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
-            txtPrecio.setText(""); txtNumeroLlaves.setText(""); txtTipoBoquilla.setText("");
+            txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
         }
         
     } catch (NumberFormatException e) {
@@ -380,28 +374,28 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIConsultarViento().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GUIConsultarCuerda().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtConsulta;
     private javax.swing.JTextField txtFechaVenta;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNumeroLlaves;
+    private javax.swing.JTextField txtNumeroCuerdas;
+    private javax.swing.JTextField txtNumeroTrastes;
     private javax.swing.JTextField txtPrecio;
-    private javax.swing.JTextField txtTipoBoquilla;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,9 +50,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuInstrumentoCuerda = new javax.swing.JMenu();
         menuItemAdicionarCuerda = new javax.swing.JMenuItem();
         menuItemListarCuerda = new javax.swing.JMenuItem();
+        menuItemConsultarCuerda = new javax.swing.JMenuItem();
         menuInstrumentoViento = new javax.swing.JMenu();
         menuItemAdicionarViento = new javax.swing.JMenuItem();
         menuItemListarViento = new javax.swing.JMenuItem();
+        menuItemConsultarViento = new javax.swing.JMenuItem();
         menuAyuda = new javax.swing.JMenu();
         menuItemAutores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -199,6 +201,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemListarCuerda.addActionListener(this::menuItemListarCuerdaActionPerformed);
         menuInstrumentoCuerda.add(menuItemListarCuerda);
 
+        menuItemConsultarCuerda.setText("Consultar InstrumentoCuerda");
+        menuItemConsultarCuerda.addActionListener(this::menuItemConsultarCuerdaActionPerformed);
+        menuInstrumentoCuerda.add(menuItemConsultarCuerda);
+
         jMenuBar1.add(menuInstrumentoCuerda);
 
         menuInstrumentoViento.setText("InstrumentoViento");
@@ -210,6 +216,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemListarViento.setText("Listar InstrumentoViento");
         menuItemListarViento.addActionListener(this::menuItemListarVientoActionPerformed);
         menuInstrumentoViento.add(menuItemListarViento);
+
+        menuItemConsultarViento.setText("Consultar InstrumentoViento");
+        menuItemConsultarViento.addActionListener(this::menuItemConsultarVientoActionPerformed);
+        menuInstrumentoViento.add(menuItemConsultarViento);
 
         jMenuBar1.add(menuInstrumentoViento);
 
@@ -279,6 +289,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Suerte con eso y espero no encuentres bugs ;)", "Tutorial", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void menuItemConsultarCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultarCuerdaActionPerformed
+        GUIConsultarCuerda gui = new GUIConsultarCuerda();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemConsultarCuerdaActionPerformed
+
+    private void menuItemConsultarVientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultarVientoActionPerformed
+         GUIConsultarViento gui = new GUIConsultarViento();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemConsultarVientoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -327,6 +347,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemAdicionarCuerda;
     private javax.swing.JMenuItem menuItemAdicionarViento;
     private javax.swing.JMenuItem menuItemAutores;
+    private javax.swing.JMenuItem menuItemConsultarCuerda;
+    private javax.swing.JMenuItem menuItemConsultarViento;
     private javax.swing.JMenuItem menuItemListarCuerda;
     private javax.swing.JMenuItem menuItemListarViento;
     private javax.swing.JMenuItem menuItemSalir;
