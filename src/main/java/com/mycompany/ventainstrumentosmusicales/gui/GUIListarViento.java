@@ -100,14 +100,18 @@ public class GUIListarViento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-     Map<Integer, Instrumento> instrumentos;
-        instrumentos = ServicioInstrumentos.getInstrumento();
+     Map<Integer, Instrumento> instrumentos = ServicioInstrumentos.getInstrumento();
+    
+    DefaultTableModel modelo = (DefaultTableModel) tblInstrumentos.getModel();
+    modelo.setRowCount(0); 
+    
+    for (Map.Entry<Integer, Instrumento> inst : instrumentos.entrySet()) {
+        Integer cedula = inst.getKey();
+        Instrumento instrumentoActual = inst.getValue();
+
         
-        DefaultTableModel modelo = (DefaultTableModel) tblInstrumentos.getModel();
-        modelo.setRowCount(0);
-        for (Map.Entry<Integer, Instrumento> inst : instrumentos.entrySet()) {
-            Integer cedula = inst.getKey();
-            InstrumentoViento doc = (InstrumentoViento) inst.getValue();
+        if (instrumentoActual instanceof InstrumentoViento) {
+            InstrumentoViento doc = (InstrumentoViento) instrumentoActual;
 
             Object[] fila = new Object[]{
                 cedula,
@@ -120,6 +124,7 @@ public class GUIListarViento extends javax.swing.JFrame {
 
             modelo.addRow(fila);
         }
+    }
     }//GEN-LAST:event_btnListarActionPerformed
 
     /**
