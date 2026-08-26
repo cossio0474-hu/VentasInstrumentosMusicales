@@ -20,7 +20,7 @@ public class InstrumentoCuerda extends Instrumento{
     {
         super(id, nombre, fechaVenta, precio);
         setNumeroCuerdas(numeroCuerdas);
-        this.numeroTrastes = numeroTrastes;
+        setNumeroTrastes(numeroTrastes);
     }
     
     public int getNumeroCuerdas()
@@ -45,9 +45,13 @@ public class InstrumentoCuerda extends Instrumento{
         return numeroTrastes;
     }
     
-    public void setNumeroTrastes(int numeroTrastes)
+    public void setNumeroTrastes(int numeroTrastes) throws Exception
     {
-        this.numeroTrastes = numeroTrastes;
+         if (numeroTrastes >= 0) {
+            this.numeroTrastes =  numeroTrastes;
+        } else {
+            throw new Exception("Número de trastes menor a 0");
+        };
     }
     
     public double calcularPrecio()

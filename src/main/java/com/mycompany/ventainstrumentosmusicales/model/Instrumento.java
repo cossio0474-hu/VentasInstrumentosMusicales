@@ -17,13 +17,14 @@ public abstract class Instrumento {
     private double precio;
     private LocalDate fechaVenta;
 
-    public Instrumento(int id, String nombre) {
-        this.id = id;
+    public Instrumento(int id, String nombre) throws Exception {
+        setId(id);
         this.nombre = nombre;
     }
 
     public Instrumento(int id, String nombre, LocalDate fechaVenta, double precio) throws Exception {
-        this(id, nombre);
+        this.nombre = nombre;
+        setId(id);
         this.fechaVenta = fechaVenta;
         setPrecio(precio);
 
@@ -36,13 +37,20 @@ public abstract class Instrumento {
             throw new Exception("Precio menor o igual a 0");
         }
     }
+    
+    
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id) throws Exception {
+        
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new Exception("Id menor a 0");
+        }
 
     }
 

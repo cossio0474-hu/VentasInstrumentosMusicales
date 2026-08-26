@@ -18,7 +18,7 @@ public class InstrumentoViento extends Instrumento implements CalcularRegistroLl
     public InstrumentoViento(int id, String nombre, LocalDate fechaVenta, double precio, int numeroLlaves, String tipoBoquilla) throws Exception
     {
         super(id, nombre, fechaVenta, precio);
-        this.numeroLlaves = numeroLlaves;
+        setNumeroLlaves(numeroLlaves);
         this.tipoBoquilla = tipoBoquilla;
     }
     
@@ -27,9 +27,13 @@ public class InstrumentoViento extends Instrumento implements CalcularRegistroLl
         return numeroLlaves;
     }
     
-    public void setNumeroLlaves(int numeroLlaves)
+    public void setNumeroLlaves(int numeroLlaves) throws Exception
     {
-        this.numeroLlaves = numeroLlaves;
+         if (numeroLlaves >= 0) {
+            this.numeroLlaves = numeroLlaves;
+        } else {
+            throw new Exception("numero de llaves menor o igual a 0");
+        }
     }
     
     public String getTipoBoquilla()
