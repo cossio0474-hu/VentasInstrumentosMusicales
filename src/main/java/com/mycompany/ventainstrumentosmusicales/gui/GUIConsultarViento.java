@@ -110,7 +110,7 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         btnConsultar.addActionListener(this::btnConsultarActionPerformed);
 
         lblId.setForeground(new java.awt.Color(255, 255, 255));
-        lblId.setText(" _________________");
+        lblId.setText("Aun no encontrada");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

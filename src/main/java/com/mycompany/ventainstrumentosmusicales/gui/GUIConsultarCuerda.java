@@ -53,7 +53,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lblId = new javax.swing.JLabel();
+        lblId2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIConsultarCuerda");
@@ -112,8 +112,8 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        lblId.setForeground(new java.awt.Color(255, 255, 255));
-        lblId.setText("_______________");
+        lblId2.setForeground(new java.awt.Color(255, 255, 255));
+        lblId2.setText("Aun no encontrada");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -132,17 +132,18 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblId2))
+                        .addGap(85, 85, 85)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
+                                .addGap(91, 91, 91)
                                 .addComponent(btnEditar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnEliminar)
                                 .addGap(5, 5, 5))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -177,7 +178,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel1)
-                    .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblId2))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -256,7 +257,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
        String idConsultaStr = txtConsulta.getText().trim();
-    if (idConsultaStr.isEmpty() || jLabel1.getText().trim().isEmpty()) {
+    if (idConsultaStr.isEmpty() || lblId2.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para editarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
@@ -265,7 +266,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         int idOriginal = Integer.parseInt(idConsultaStr);
         
         // Recoger y convertir los valores de los campos
-        int idNuevo = Integer.parseInt(jLabel1.getText().trim());
+        int idNuevo = Integer.parseInt(lblId2.getText().trim());
         String nombre = txtNombre.getText().trim();
         LocalDate fecha = LocalDate.parse(txtFechaVenta.getText().trim()); // Formato YYYY-MM-DD
         double precio = Double.parseDouble(txtPrecio.getText().trim());
@@ -293,7 +294,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String idConsultaStr = txtConsulta.getText().trim();
     
-    if (idConsultaStr.isEmpty() || jLabel1.getText().trim().isEmpty()) {
+    if (idConsultaStr.isEmpty() || lblId2.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para eliminarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
@@ -310,7 +311,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
             
             // Limpiar todo después de eliminar
             txtConsulta.setText("");
-            jLabel1.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
+            lblId2.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
             txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
         }
         
@@ -338,7 +339,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
             InstrumentoCuerda cuerda = (InstrumentoCuerda) inst;
 
             // Llenar los campos con los valores del instrumento de cuerda
-            jLabel1.setText(String.valueOf(cuerda.getId()));
+            lblId2.setText(String.valueOf(cuerda.getId()));
             txtNombre.setText(cuerda.getNombre());
             txtFechaVenta.setText(cuerda.getFechaVenta().toString()); 
             txtPrecio.setText(String.valueOf(cuerda.getPrecio()));
@@ -348,7 +349,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró ningún instrumento de cuerda con ese ID.", "No Encontrado / Tipo Incorrecto", JOptionPane.ERROR_MESSAGE);
             // Limpiar los campos 
-            jLabel1.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
+            lblId2.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
             txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
         }
         
@@ -398,7 +399,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblId2;
     private javax.swing.JTextField txtConsulta;
     private javax.swing.JTextField txtFechaVenta;
     private javax.swing.JTextField txtNombre;
