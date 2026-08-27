@@ -2,7 +2,7 @@
 
 ## Diagrama de clases
 
-<img width="900" height="900" alt="Diagrama de Clases TiendaInstrumentos" src="https://github.com/user-attachments/assets/cfb042fa-65e2-4c70-a6cd-f3be1d36f034" />
+<img width="1000" height="900" alt="Diagrama de Clases TiendaInstrumentos" src="https://github.com/user-attachments/assets/cfb042fa-65e2-4c70-a6cd-f3be1d36f034" />
 
 
 ## Diagrama Casos de uso
