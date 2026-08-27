@@ -109,6 +109,7 @@ public class GUIListarCuerda extends javax.swing.JFrame {
             Integer cedula = inst.getKey();
             Instrumento instrumentoActual = inst.getValue();
             
+            // Validamos que el instrumento sea específicamente de Cuerda
             if (instrumentoActual instanceof InstrumentoCuerda) {
                 InstrumentoCuerda doc = (InstrumentoCuerda) instrumentoActual;
 
