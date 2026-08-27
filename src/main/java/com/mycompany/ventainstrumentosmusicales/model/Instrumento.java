@@ -21,6 +21,8 @@ public abstract class Instrumento {
         this.id = id;
         setNombre(nombre);
     }
+    
+    
 
     public Instrumento(int id, String nombre, LocalDate fechaVenta, double precio) throws Exception {
         this.id = id;
