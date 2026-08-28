@@ -23,6 +23,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
      */
     public GUIConsultarCuerda() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -34,6 +35,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblNombre = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -44,16 +46,17 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        txtFechaVenta = new javax.swing.JTextField();
-        txtPrecio = new javax.swing.JTextField();
-        txtNumeroCuerdas = new javax.swing.JTextField();
-        txtNumeroTrastes = new javax.swing.JTextField();
-        btnEditar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblId2 = new javax.swing.JLabel();
+        lblNombre1 = new javax.swing.JLabel();
+        lblFechaVenta = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        lblNumeroCuerdas = new javax.swing.JLabel();
+        lblNumeroTrastes = new javax.swing.JLabel();
+
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setText("Aun no encontrada");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIConsultarCuerda");
@@ -88,24 +91,6 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Número de Trastes:");
 
-        txtNombre.addActionListener(this::txtNombreActionPerformed);
-
-        txtFechaVenta.addActionListener(this::txtFechaVentaActionPerformed);
-
-        txtPrecio.addActionListener(this::txtPrecioActionPerformed);
-
-        txtNumeroCuerdas.addActionListener(this::txtNumeroCuerdasActionPerformed);
-
-        txtNumeroTrastes.addActionListener(this::txtNumeroTrastesActionPerformed);
-
-        btnEditar.setBackground(new java.awt.Color(255, 153, 0));
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(this::btnEditarActionPerformed);
-
-        btnEliminar.setBackground(new java.awt.Color(255, 153, 0));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(this::btnEliminarActionPerformed);
-
         btnConsultar.setBackground(new java.awt.Color(255, 153, 0));
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(this::btnConsultarActionPerformed);
@@ -115,116 +100,108 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         lblId2.setForeground(new java.awt.Color(255, 255, 255));
         lblId2.setText("Aun no encontrada");
 
+        lblNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre1.setText("Aun no encontrada");
+
+        lblFechaVenta.setForeground(new java.awt.Color(255, 255, 255));
+        lblFechaVenta.setText("Aun no encontrada");
+
+        lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrecio.setText("Aun no encontrada");
+
+        lblNumeroCuerdas.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumeroCuerdas.setText("Aun no encontrada");
+
+        lblNumeroTrastes.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumeroTrastes.setText("Aun no encontrada");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(201, 201, 201)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblId2)
+                    .addComponent(lblNombre1)
+                    .addComponent(lblFechaVenta)
+                    .addComponent(lblPrecio)
+                    .addComponent(lblNumeroCuerdas)
+                    .addComponent(lblNumeroTrastes))
+                .addGap(114, 114, 114)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblId2))
-                        .addGap(85, 85, 85)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(91, 91, 91)
-                                .addComponent(btnEditar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEliminar)
-                                .addGap(5, 5, 5))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addComponent(jLabel4)
                         .addGap(27, 27, 27)
                         .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(btnConsultar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(75, 75, 75))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnConsultar))
+                    .addComponent(jLabel3))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel3)
-                .addGap(32, 32, 32)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsultar))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel1)
-                    .addComponent(lblId2))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(lblId2))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(lblNombre1))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(lblFechaVenta))
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblPrecio))
+                        .addGap(37, 37, 37)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEditar)
-                            .addComponent(btnEliminar))
-                        .addGap(15, 15, 15)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                            .addComponent(jLabel9)
+                            .addComponent(lblNumeroCuerdas))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(lblNumeroTrastes))))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -234,93 +211,6 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
         // Esto simula un clic en el botón Consultar cuando el usuario presiona Enter
     btnConsultar.doClick();
     }//GEN-LAST:event_txtConsultaActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtFechaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaVentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaVentaActionPerformed
-
-    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecioActionPerformed
-
-    private void txtNumeroCuerdasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroCuerdasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroCuerdasActionPerformed
-
-    private void txtNumeroTrastesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroTrastesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroTrastesActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-       String idConsultaStr = txtConsulta.getText().trim();
-    if (idConsultaStr.isEmpty() || lblId2.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para editarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-
-    try {
-        int idOriginal = Integer.parseInt(idConsultaStr);
-        
-        // Recoger y convertir los valores de los campos
-        int idNuevo = Integer.parseInt(lblId2.getText().trim());
-        String nombre = txtNombre.getText().trim();
-        LocalDate fecha = LocalDate.parse(txtFechaVenta.getText().trim()); // Formato YYYY-MM-DD
-        double precio = Double.parseDouble(txtPrecio.getText().trim());
-        int cuerdas = Integer.parseInt(txtNumeroCuerdas.getText().trim());
-        int trastes = Integer.parseInt(txtNumeroTrastes.getText().trim());
-
-        // Crear instancia con los nuevos datos específicos de cuerda
-        InstrumentoCuerda cuerdaActualizado = new InstrumentoCuerda(idNuevo, nombre, fecha, precio, cuerdas, trastes);
-        
-        // Actualizar usando el servicio
-        ServicioInstrumentos.actualizarInstrumento(idOriginal, cuerdaActualizado);
-        
-        JOptionPane.showMessageDialog(this, "Instrumento actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Revisa que ID, Precio, Número de Cuerdas y Trastes sean numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
-    } catch (DateTimeParseException e) {
-        JOptionPane.showMessageDialog(this, "La fecha debe tener el formato YYYY-MM-DD.", "Error en Fecha", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception e) {
-        // Captura las excepciones de validación como "Numero de cuerdas menor o igual a 0"
-        JOptionPane.showMessageDialog(this, "Error al actualizar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        String idConsultaStr = txtConsulta.getText().trim();
-    
-    if (idConsultaStr.isEmpty() || lblId2.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para eliminarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-
-    try {
-        int idOriginal = Integer.parseInt(idConsultaStr);
-        
-        int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
-        
-        if (opcion == JOptionPane.YES_OPTION) {
-            ServicioInstrumentos.deleteInstrumento(idOriginal);
-            
-            JOptionPane.showMessageDialog(this, "Instrumento eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            
-            // Limpiar todo después de eliminar
-            txtConsulta.setText("");
-            lblId2.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
-            txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
-        }
-        
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "El ID de búsqueda debe ser numérico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al eliminar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         String idStr = txtConsulta.getText().trim();
@@ -340,17 +230,17 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
             // Llenar los campos con los valores del instrumento de cuerda
             lblId2.setText(String.valueOf(cuerda.getId()));
-            txtNombre.setText(cuerda.getNombre());
-            txtFechaVenta.setText(cuerda.getFechaVenta().toString()); 
-            txtPrecio.setText(String.valueOf(cuerda.getPrecio()));
-            txtNumeroCuerdas.setText(String.valueOf(cuerda.getNumeroCuerdas())); 
-            txtNumeroTrastes.setText(String.valueOf(cuerda.getNumeroTrastes())); 
+            lblNombre1.setText(cuerda.getNombre());
+            lblFechaVenta.setText(cuerda.getFechaVenta().toString()); 
+            lblPrecio.setText(String.valueOf(cuerda.getPrecio()));
+            lblNumeroCuerdas.setText(String.valueOf(cuerda.getNumeroCuerdas())); 
+            lblNumeroTrastes.setText(String.valueOf(cuerda.getNumeroTrastes())); 
             
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró ningún instrumento de cuerda con ese ID.", "No Encontrado / Tipo Incorrecto", JOptionPane.ERROR_MESSAGE);
             // Limpiar los campos 
-            lblId2.setText(""); txtNombre.setText(""); txtFechaVenta.setText("");
-            txtPrecio.setText(""); txtNumeroCuerdas.setText(""); txtNumeroTrastes.setText("");
+            lblId2.setText(""); lblNombre1.setText(""); lblFechaVenta.setText("");
+            lblPrecio.setText(""); lblNumeroCuerdas.setText(""); lblNumeroTrastes.setText("");
         }
         
     } catch (NumberFormatException e) {
@@ -387,8 +277,6 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
@@ -399,12 +287,13 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblFechaVenta;
     private javax.swing.JLabel lblId2;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblNumeroCuerdas;
+    private javax.swing.JLabel lblNumeroTrastes;
+    private javax.swing.JLabel lblPrecio;
     private javax.swing.JTextField txtConsulta;
-    private javax.swing.JTextField txtFechaVenta;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNumeroCuerdas;
-    private javax.swing.JTextField txtNumeroTrastes;
-    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

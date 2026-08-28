@@ -4,24 +4,24 @@
  */
 package com.mycompany.ventainstrumentosmusicales.gui;
 
-import javax.swing.JOptionPane;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
+import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoViento;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
-public class GUIConsultarViento extends javax.swing.JFrame {
+public class GUIEliminarViento extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIConsultarViento.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIEliminarViento.class.getName());
 
     /**
-     * Creates new form GUIConsultarCuerda
+     * Creates new form GUIEliminarCuerda
      */
-    public GUIConsultarViento() {
+    public GUIEliminarViento() {
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -35,63 +35,93 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnEliminar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtConsulta = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        txtConsulta = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
+        btnEliminar1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         lblFechaVenta = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
         lblNumeroLlaves = new javax.swing.JLabel();
         lblTipoBoquilla = new javax.swing.JLabel();
 
+        btnEliminar.setBackground(new java.awt.Color(255, 153, 0));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(this::btnEliminarActionPerformed);
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Nombre:");
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Fecha de Venta:");
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Precio:");
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Número de Cuerdas:");
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Número de Trastes:");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("GUIConsultarViento");
+        setTitle("GUIEliminarVienti");
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel1.setText("Consultar Instrumento de Viento");
+        jLabel1.setText("Eliminar Instrumento de Cuerda");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 2, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inserta el ID del intrumento:");
+        jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 2, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Inserta el ID del intrumento:");
 
         txtConsulta.addActionListener(this::txtConsultaActionPerformed);
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ID:");
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nombre:");
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Precio:");
-
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Fecha de Venta:");
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Numero de Llaves:");
-
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Tipo de Boquilla:");
 
         btnConsultar.setBackground(new java.awt.Color(255, 153, 0));
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(this::btnConsultarActionPerformed);
 
+        btnEliminar1.setBackground(new java.awt.Color(255, 153, 0));
+        btnEliminar1.setText("Eliminar");
+        btnEliminar1.addActionListener(this::btnEliminar1ActionPerformed);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("ID:");
+
         lblId.setForeground(new java.awt.Color(255, 255, 255));
         lblId.setText("Aun no encontrada");
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Nombre:");
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Fecha de Venta:");
+
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Precio:");
+
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Número de Llaves:");
+
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Tipo de Boquilla:");
 
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Aun no encontrada");
@@ -112,72 +142,78 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(193, 193, 193))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
+                        .addGap(241, 241, 241)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(27, 27, 27)
-                                .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(btnConsultar))
-                            .addComponent(jLabel1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(29, 29, 29)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblId)
                             .addComponent(lblNombre)
                             .addComponent(lblFechaVenta)
                             .addComponent(lblPrecio)
                             .addComponent(lblNumeroLlaves)
-                            .addComponent(lblTipoBoquilla))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                            .addComponent(lblTipoBoquilla)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel4)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnConsultar)))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultar))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblId))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblNombre))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lblFechaVenta))
-                .addGap(27, 27, 27)
+                    .addComponent(jLabel4)
+                    .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
+                    .addComponent(lblId))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(lblNombre))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(lblFechaVenta))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
                     .addComponent(lblPrecio))
-                .addGap(37, 37, 37)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(jLabel14)
                     .addComponent(lblNumeroLlaves))
-                .addGap(40, 40, 40)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(jLabel15)
                     .addComponent(lblTipoBoquilla))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -195,12 +231,12 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaActionPerformed
-    // Esto simula un clic en el botón Consultar cuando el usuario presiona Enter en el campo de texto
-    btnConsultar.doClick();
+        // Esto simula un clic en el botón Consultar cuando el usuario presiona Enter
+        btnConsultar.doClick();
     }//GEN-LAST:event_txtConsultaActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        String idStr = txtConsulta.getText().trim();
+           String idStr = txtConsulta.getText().trim();
 
     if (idStr.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, ingresa el ID del instrumento a buscar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -238,13 +274,76 @@ public class GUIConsultarViento extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+           String idConsultaStr = txtConsulta.getText().trim();
+    
+    if (idConsultaStr.isEmpty() || lblId.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para eliminarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    try {
+        int idOriginal = Integer.parseInt(idConsultaStr);
+        
+        // Confirmar eliminación
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        
+        if (opcion == JOptionPane.YES_OPTION) {
+            ServicioInstrumentos.deleteInstrumento(idOriginal);
+            
+            JOptionPane.showMessageDialog(this, "Instrumento eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Limpiar todo después de eliminar
+            txtConsulta.setText("");
+            lblId.setText(""); lblNombre.setText(""); lblFechaVenta.setText("");
+            lblPrecio.setText(""); lblNumeroLlaves.setText(""); lblTipoBoquilla.setText("");
+        }
+        
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "El ID de búsqueda debe ser numérico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al eliminar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+        String idConsultaStr = txtConsulta.getText().trim();
+
+        if (idConsultaStr.isEmpty() || lblId.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Primero busca un instrumento válido para eliminarlo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            int idOriginal = Integer.parseInt(idConsultaStr);
+
+            int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                ServicioInstrumentos.deleteInstrumento(idOriginal);
+
+                JOptionPane.showMessageDialog(this, "Instrumento eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+                // Limpiar todo después de eliminar
+                txtConsulta.setText("");
+                lblId.setText(""); lblNombre.setText(""); lblFechaVenta.setText("");
+                lblPrecio.setText(""); lblNumeroLlaves.setText(""); lblTipoBoquilla.setText("");
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El ID de búsqueda debe ser numérico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al eliminar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* If Nimbus (introducedlblNombrea SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
@@ -260,19 +359,26 @@ public class GUIConsultarViento extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIConsultarViento().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GUIEliminarViento().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEliminar1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFechaVenta;
     private javax.swing.JLabel lblId;

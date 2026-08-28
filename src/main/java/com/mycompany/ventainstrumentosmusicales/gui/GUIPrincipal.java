@@ -20,6 +20,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     public GUIPrincipal() {
         
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -32,6 +33,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -51,15 +53,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemAdicionarCuerda = new javax.swing.JMenuItem();
         menuItemListarCuerda = new javax.swing.JMenuItem();
         menuItemConsultarCuerda = new javax.swing.JMenuItem();
+        menuItemEliminarCuerda = new javax.swing.JMenuItem();
+        menuItemEditarInstrumentoCuerda = new javax.swing.JMenuItem();
         menuInstrumentoViento = new javax.swing.JMenu();
         menuItemAdicionarViento = new javax.swing.JMenuItem();
         menuItemListarViento = new javax.swing.JMenuItem();
         menuItemConsultarViento = new javax.swing.JMenuItem();
+        menuItemEliminarViento = new javax.swing.JMenuItem();
+        menuItemEditarViento = new javax.swing.JMenuItem();
         menuAyuda = new javax.swing.JMenu();
         menuItemAutores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIPrincipal");
@@ -205,6 +213,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemConsultarCuerda.addActionListener(this::menuItemConsultarCuerdaActionPerformed);
         menuInstrumentoCuerda.add(menuItemConsultarCuerda);
 
+        menuItemEliminarCuerda.setText("Eliminar InstrumentoCuerda");
+        menuItemEliminarCuerda.addActionListener(this::menuItemEliminarCuerdaActionPerformed);
+        menuInstrumentoCuerda.add(menuItemEliminarCuerda);
+
+        menuItemEditarInstrumentoCuerda.setText("Editar InstrumentoCuerda");
+        menuItemEditarInstrumentoCuerda.addActionListener(this::menuItemEditarInstrumentoCuerdaActionPerformed);
+        menuInstrumentoCuerda.add(menuItemEditarInstrumentoCuerda);
+
         jMenuBar1.add(menuInstrumentoCuerda);
 
         menuInstrumentoViento.setText("InstrumentoViento");
@@ -220,6 +236,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemConsultarViento.setText("Consultar InstrumentoViento");
         menuItemConsultarViento.addActionListener(this::menuItemConsultarVientoActionPerformed);
         menuInstrumentoViento.add(menuItemConsultarViento);
+
+        menuItemEliminarViento.setText("Eliminar InstrumentoViento");
+        menuItemEliminarViento.addActionListener(this::menuItemEliminarVientoActionPerformed);
+        menuInstrumentoViento.add(menuItemEliminarViento);
+
+        menuItemEditarViento.setText("Editar InstrumentoViento");
+        menuItemEditarViento.addActionListener(this::menuItemEditarVientoActionPerformed);
+        menuInstrumentoViento.add(menuItemEditarViento);
 
         jMenuBar1.add(menuInstrumentoViento);
 
@@ -299,6 +323,26 @@ public class GUIPrincipal extends javax.swing.JFrame {
         gui.setVisible(true);
     }//GEN-LAST:event_menuItemConsultarVientoActionPerformed
 
+    private void menuItemEliminarCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCuerdaActionPerformed
+        GUIEliminarCuerda gui = new GUIEliminarCuerda();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarCuerdaActionPerformed
+
+    private void menuItemEditarInstrumentoCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEditarInstrumentoCuerdaActionPerformed
+        GUIEditarCuerda gui = new GUIEditarCuerda ();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemEditarInstrumentoCuerdaActionPerformed
+
+    private void menuItemEliminarVientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarVientoActionPerformed
+        GUIEliminarViento gui = new GUIEliminarViento();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarVientoActionPerformed
+
+    private void menuItemEditarVientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEditarVientoActionPerformed
+        GUIEditarViento gui = new GUIEditarViento();
+        gui.setVisible(true);
+    }//GEN-LAST:event_menuItemEditarVientoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,6 +381,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -349,6 +394,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemAutores;
     private javax.swing.JMenuItem menuItemConsultarCuerda;
     private javax.swing.JMenuItem menuItemConsultarViento;
+    private javax.swing.JMenuItem menuItemEditarInstrumentoCuerda;
+    private javax.swing.JMenuItem menuItemEditarViento;
+    private javax.swing.JMenuItem menuItemEliminarCuerda;
+    private javax.swing.JMenuItem menuItemEliminarViento;
     private javax.swing.JMenuItem menuItemListarCuerda;
     private javax.swing.JMenuItem menuItemListarViento;
     private javax.swing.JMenuItem menuItemSalir;

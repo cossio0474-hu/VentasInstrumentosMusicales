@@ -23,6 +23,7 @@ public class GUIListarCuerda extends javax.swing.JFrame {
      */
     public GUIListarCuerda() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

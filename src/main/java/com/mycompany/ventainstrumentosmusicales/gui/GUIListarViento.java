@@ -23,6 +23,7 @@ public class GUIListarViento extends javax.swing.JFrame {
      */
     public GUIListarViento() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
