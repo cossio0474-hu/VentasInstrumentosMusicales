@@ -178,38 +178,127 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         int id;
-        LocalDate fechaVenta;
-        double precio;
-        int numeroLlaves;
-        String tipoBoquilla;
+    LocalDate fechaVenta;
+    double precio;
+    int numeroLlaves;
+    String tipoBoquilla;
 
-        try {
-            String strId = txtId.getText().trim();
-            String nombre = txtNombre.getText().trim();
-            String strFechaVenta = txtFechaVenta.getText().trim();
-            String strPrecio = txtPrecio.getText().trim();
-            String strNumeroLlaves = txtNumeroLlaves.getText().trim();
-            String strTipoBoquilla = txtTipoBoquilla.getText().trim();
-            
-            id = Integer.parseInt(strId);
-            
-            if (ServicioInstrumentos.buscarInstrumento(id) != null) {
-                JOptionPane.showMessageDialog(this, "Error: Ya existe un instrumento registrado con el ID " + id, "ID Duplicado", JOptionPane.WARNING_MESSAGE);
-                return; 
-            }
+    try {
+        String strId = txtId.getText().trim();
+        String nombre = txtNombre.getText().trim();
+        String strFechaVenta = txtFechaVenta.getText().trim();
+        String strPrecio = txtPrecio.getText().trim();
+        String strNumeroLlaves = txtNumeroLlaves.getText().trim();
+        String strTipoBoquilla = txtTipoBoquilla.getText().trim();
 
-            fechaVenta = LocalDate.parse(strFechaVenta);
-            precio = Double.parseDouble(strPrecio);
-            numeroLlaves = Integer.parseInt(strNumeroLlaves);
-            tipoBoquilla = strTipoBoquilla;
-
-            InstrumentoViento ins = new InstrumentoViento(id, nombre, fechaVenta, precio, numeroLlaves, tipoBoquilla);
-            ServicioInstrumentos.addInstrumento(ins);
-            JOptionPane.showMessageDialog(this, "Instrumento de Viento creado!");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e);
+        // VALIDAR CAMPOS VACÍOS
+        if (strId.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Debe ingresar el ID del instrumento.",
+                    "Campo obligatorio",
+                    JOptionPane.WARNING_MESSAGE);
+            txtId.requestFocus();
+            return;
         }
+
+        if (nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Debe ingresar el nombre del instrumento.",
+                    "Campo obligatorio",
+                    JOptionPane.WARNING_MESSAGE);
+            txtNombre.requestFocus();
+            return;
+        }
+
+        if (strFechaVenta.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Debe ingresar la fecha de venta.",
+                    "Campo obligatorio",
+                    JOptionPane.WARNING_MESSAGE);
+            txtFechaVenta.requestFocus();
+            return;
+        }
+
+        if (strPrecio.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Debe ingresar el precio del instrumento.",
+                    "Campo obligatorio",
+                    JOptionPane.WARNING_MESSAGE);
+            txtPrecio.requestFocus();
+            return;
+        }
+
+        if (strNumeroLlaves.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Debe ingresar el número de llaves.",
+                    "Campo obligatorio",
+                    JOptionPane.WARNING_MESSAGE);
+            txtNumeroLlaves.requestFocus();
+            return;
+        }
+
+        if (strTipoBoquilla.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Debe ingresar el tipo de boquilla.",
+                    "Campo obligatorio",
+                    JOptionPane.WARNING_MESSAGE);
+            txtTipoBoquilla.requestFocus();
+            return;
+        }
+
+        // CONVERSIÓN DE DATOS
+        id = Integer.parseInt(strId);
+
+        // VALIDAR ID DUPLICADO
+        if (ServicioInstrumentos.buscarInstrumento(id) != null) {
+            JOptionPane.showMessageDialog(this,
+                    "Error: Ya existe un instrumento registrado con el ID " + id,
+                    "ID Duplicado",
+                    JOptionPane.WARNING_MESSAGE);
+            txtId.requestFocus();
+            return;
+        }
+
+        fechaVenta = LocalDate.parse(strFechaVenta);
+        precio = Double.parseDouble(strPrecio);
+        numeroLlaves = Integer.parseInt(strNumeroLlaves);
+        tipoBoquilla = strTipoBoquilla;
+
+        // CREAR INSTRUMENTO
+        InstrumentoViento ins = new InstrumentoViento(
+                id,
+                nombre,
+                fechaVenta,
+                precio,
+                numeroLlaves,
+                tipoBoquilla
+        );
+
+        ServicioInstrumentos.addInstrumento(ins);
+
+        JOptionPane.showMessageDialog(this,
+                "Instrumento de Viento creado correctamente!",
+                "Éxito",
+                JOptionPane.INFORMATION_MESSAGE);
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this,
+                "El ID, precio y número de llaves deben tener un formato numérico válido.",
+                "Datos inválidos",
+                JOptionPane.ERROR_MESSAGE);
+
+    } catch (java.time.format.DateTimeParseException e) {
+        JOptionPane.showMessageDialog(this,
+                "La fecha debe tener el formato Año-Mes-Día.\nEjemplo: 2026-08-27",
+                "Fecha inválida",
+                JOptionPane.ERROR_MESSAGE);
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this,
+                "Error: " + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     /**
