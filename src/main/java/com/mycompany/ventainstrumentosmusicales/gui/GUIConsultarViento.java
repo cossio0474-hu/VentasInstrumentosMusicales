@@ -209,9 +209,10 @@ public class GUIConsultarViento extends javax.swing.JFrame {
 
     try {
         int idConsulta = Integer.parseInt(idStr);
+        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
         
         // Buscar el instrumento en el servicio
-        Instrumento inst = ServicioInstrumentos.buscarInstrumento(idConsulta); 
+        Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta); 
 
         if (inst != null && inst instanceof InstrumentoViento) {
             InstrumentoViento viento = (InstrumentoViento) inst;

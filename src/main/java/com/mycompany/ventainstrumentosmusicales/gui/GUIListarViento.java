@@ -101,7 +101,10 @@ public class GUIListarViento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-     Map<Integer, Instrumento> instrumentos = ServicioInstrumentos.getInstrumento();
+    
+        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
+        
+        Map<Integer, Instrumento> instrumentos = servicioInstrumentos.getInstrumento();
     
     DefaultTableModel modelo = (DefaultTableModel) tblInstrumentos.getModel();
     modelo.setRowCount(0); 

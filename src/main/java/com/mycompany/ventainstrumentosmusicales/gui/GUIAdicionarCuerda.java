@@ -21,8 +21,9 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
      * Creates new form GUIAdicionarInstrumentoCuerda
      */
     public GUIAdicionarCuerda() {
-        setLocationRelativeTo(this);
         initComponents();
+        setLocationRelativeTo(this);
+        
     }
 
     /**
@@ -193,7 +194,9 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
             
             id = Integer.parseInt(strId);
             
-            if (ServicioInstrumentos.buscarInstrumento(id) != null) {
+            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
+            
+            if (servicioInstrumentos.buscarInstrumento(id) != null) {
                 JOptionPane.showMessageDialog(this, "Error: Ya existe un instrumento registrado con el ID " + id, "ID Duplicado", JOptionPane.WARNING_MESSAGE);
                 return; 
             }
@@ -205,7 +208,7 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
             numeroTrastes = Integer.parseInt(strNumeroTrastes);
 
             InstrumentoCuerda ins = new InstrumentoCuerda(id, nombre, fechaVenta, precio, numeroCuerdas, numeroTrastes);
-            ServicioInstrumentos.addInstrumento(ins);
+            servicioInstrumentos.addInstrumento(ins);
             JOptionPane.showMessageDialog(this, "Instrumento de cuerda creado!");
 
         } catch (Exception e) {

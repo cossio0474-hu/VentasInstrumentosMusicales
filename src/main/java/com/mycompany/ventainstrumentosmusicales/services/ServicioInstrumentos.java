@@ -12,17 +12,38 @@ import java.util.Map;
  *
  * @author cossi
  */
-public class ServicioInstrumentos {
-    private static Map<Integer, Instrumento> instrumentos = new HashMap();
+public class ServicioInstrumentos implements IServicioInstrumento{
     
-    public static Map<Integer, Instrumento> getInstrumento(){
+    private  Map<Integer, Instrumento> instrumentos = new HashMap();
+    
+    
+    // Única instancia de la clase
+    private static ServicioInstrumentos instancia;
+
+    // Constructor privado
+    private ServicioInstrumentos() {
+    }
+
+    // Método para obtener la única instancia
+    public static ServicioInstrumentos getInstancia() {
+        if (instancia == null) {
+            instancia = new ServicioInstrumentos();
+        }
+
+        return instancia;
+    }
+    
+    @Override
+    public  Map<Integer, Instrumento> getInstrumento(){
         return Map.copyOf(instrumentos);
     }
-    public static void addInstrumento(Instrumento instrumento){
+    @Override
+    public void addInstrumento(Instrumento instrumento){
         instrumentos.put(instrumento.getId(), instrumento);
     }
     
-    public static void deleteInstrumento(int id) throws Exception
+    @Override
+    public void deleteInstrumento(int id) throws Exception
     {
         if(instrumentos.values() != null)
         {
@@ -34,7 +55,8 @@ public class ServicioInstrumentos {
         }
     }
     
-    public static void actualizarInstrumento(int id, Instrumento instrumento) throws Exception
+    @Override
+    public void actualizarInstrumento(int id, Instrumento instrumento) throws Exception
     {
         if(instrumentos.values() != null)
         {
@@ -47,7 +69,8 @@ public class ServicioInstrumentos {
         }
     }
     
-    public static Instrumento buscarInstrumento(int id) throws Exception
+    @Override
+    public Instrumento buscarInstrumento(int id) throws Exception
     {
         Instrumento ins = null;
         

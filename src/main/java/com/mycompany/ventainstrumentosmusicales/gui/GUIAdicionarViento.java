@@ -21,8 +21,9 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
      * Creates new form GUIAdicionarInstrumentoViento
      */
     public GUIAdicionarViento() {
-        setLocationRelativeTo(this);
         initComponents();
+        setLocationRelativeTo(this);
+        
     }
 
     /**
@@ -248,9 +249,11 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
 
         // CONVERSIÓN DE DATOS
         id = Integer.parseInt(strId);
+        
+        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
 
         // VALIDAR ID DUPLICADO
-        if (ServicioInstrumentos.buscarInstrumento(id) != null) {
+        if (servicioInstrumentos.buscarInstrumento(id) != null) {
             JOptionPane.showMessageDialog(this,
                     "Error: Ya existe un instrumento registrado con el ID " + id,
                     "ID Duplicado",
@@ -274,7 +277,7 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
                 tipoBoquilla
         );
 
-        ServicioInstrumentos.addInstrumento(ins);
+        servicioInstrumentos.addInstrumento(ins);
 
         JOptionPane.showMessageDialog(this,
                 "Instrumento de Viento creado correctamente!",

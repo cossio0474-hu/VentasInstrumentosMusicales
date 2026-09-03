@@ -231,8 +231,9 @@ public class GUIEditarCuerda extends javax.swing.JFrame {
 
     try {
         int idConsulta = Integer.parseInt(idStr);
+        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
         
-        Instrumento inst = ServicioInstrumentos.buscarInstrumento(idConsulta); 
+        Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta); 
 
         if (inst != null && inst instanceof InstrumentoCuerda) {
             InstrumentoCuerda cuerda = (InstrumentoCuerda) inst;
@@ -304,8 +305,10 @@ public class GUIEditarCuerda extends javax.swing.JFrame {
         // Crear instancia con los nuevos datos específicos de cuerda
         InstrumentoCuerda cuerdaActualizado = new InstrumentoCuerda(idNuevo, nombre, fecha, precio, cuerdas, trastes);
         
+        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
+        
         // Actualizar usando el servicio
-        ServicioInstrumentos.actualizarInstrumento(idOriginal, cuerdaActualizado);
+        servicioInstrumentos.actualizarInstrumento(idOriginal, cuerdaActualizado);
         
         JOptionPane.showMessageDialog(this, "Instrumento actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         

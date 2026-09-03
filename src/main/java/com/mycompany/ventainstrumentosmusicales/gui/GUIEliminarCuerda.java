@@ -244,8 +244,9 @@ public class GUIEliminarCuerda extends javax.swing.JFrame {
 
         try {
             int idConsulta = Integer.parseInt(idStr);
+            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
 
-            Instrumento inst = ServicioInstrumentos.buscarInstrumento(idConsulta);
+            Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta);
 
             if (inst != null && inst instanceof InstrumentoCuerda) {
                 InstrumentoCuerda cuerda = (InstrumentoCuerda) inst;
@@ -285,8 +286,10 @@ public class GUIEliminarCuerda extends javax.swing.JFrame {
 
             int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
 
+            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
+            
             if (opcion == JOptionPane.YES_OPTION) {
-                ServicioInstrumentos.deleteInstrumento(idOriginal);
+                servicioInstrumentos.deleteInstrumento(idOriginal);
 
                 JOptionPane.showMessageDialog(this, "Instrumento eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
@@ -316,8 +319,10 @@ public class GUIEliminarCuerda extends javax.swing.JFrame {
 
             int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
 
+            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
+            
             if (opcion == JOptionPane.YES_OPTION) {
-                ServicioInstrumentos.deleteInstrumento(idOriginal);
+                servicioInstrumentos.deleteInstrumento(idOriginal);
 
                 JOptionPane.showMessageDialog(this, "Instrumento eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 

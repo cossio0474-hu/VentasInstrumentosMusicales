@@ -222,8 +222,9 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
     try {
         int idConsulta = Integer.parseInt(idStr);
+        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
         
-        Instrumento inst = ServicioInstrumentos.buscarInstrumento(idConsulta); 
+        Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta); 
 
         if (inst != null && inst instanceof InstrumentoCuerda) {
             InstrumentoCuerda cuerda = (InstrumentoCuerda) inst;
