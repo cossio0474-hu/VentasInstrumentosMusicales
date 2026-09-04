@@ -40,6 +40,7 @@ public class ServicioInstrumentos implements IServicioInstrumentos{
     @Override
     public void addInstrumento(Instrumento instrumento){
         instrumentos.put(instrumento.getId(), instrumento);
+         ServicioObserver.cambio();
     }
     
     @Override
@@ -53,6 +54,7 @@ public class ServicioInstrumentos implements IServicioInstrumentos{
         {
             throw new Exception("No se ha encontrado ningun instrumento para eliminar");
         }
+        ServicioObserver.cambio();
     }
     
     @Override
@@ -67,6 +69,7 @@ public class ServicioInstrumentos implements IServicioInstrumentos{
         {
             throw new Exception("No se ha encontrado ningun instrumento para Actualizar");
         }
+        ServicioObserver.cambio();
     }
     
     @Override

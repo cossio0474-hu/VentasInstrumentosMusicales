@@ -10,12 +10,13 @@ import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
+import com.mycompany.ventainstrumentosmusicales.services.ServicioObserver;
 
 /**
  *
  * @author User
  */
-public class GUIListarViento extends javax.swing.JFrame {
+public class GUIListarViento extends javax.swing.JFrame implements ICambiable{
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListarViento.class.getName());
 
@@ -28,6 +29,7 @@ public class GUIListarViento extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         servicioInstrumentos = ServicioInstrumentos.getInstancia();
+        ServicioObserver.addGUIInstrumento(this);
     }
 
     /**
@@ -46,6 +48,11 @@ public class GUIListarViento extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIListarInstrumentoViento");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -75,7 +82,7 @@ public class GUIListarViento extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43))
+                        .addGap(47, 47, 47))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(68, 68, 68))))
@@ -83,9 +90,9 @@ public class GUIListarViento extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -98,7 +105,7 @@ public class GUIListarViento extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -134,6 +141,10 @@ public class GUIListarViento extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btnListarActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        ServicioObserver.delGUIInstrumento(this);
+    }//GEN-LAST:event_formWindowClosed
+
     /**
      * @param args the command line arguments
      */
@@ -165,4 +176,34 @@ public class GUIListarViento extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblInstrumentos;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void cambio() {
+     
+        Map<Integer, Instrumento> instrumentos = servicioInstrumentos.getInstrumento();
+    
+    DefaultTableModel modelo = (DefaultTableModel) tblInstrumentos.getModel();
+    modelo.setRowCount(0); 
+    
+    for (Map.Entry<Integer, Instrumento> inst : instrumentos.entrySet()) {
+        Integer cedula = inst.getKey();
+        Instrumento instrumentoActual = inst.getValue();
+
+        
+        if (instrumentoActual instanceof InstrumentoViento) {
+            InstrumentoViento doc = (InstrumentoViento) instrumentoActual;
+
+            Object[] fila = new Object[]{
+                cedula,
+                doc.getNombre(), 
+                doc.getFechaVenta(),
+                doc.getPrecio(),
+                doc.getNumeroLlaves(),
+                doc.getTipoBoquilla()
+            };
+
+            modelo.addRow(fila);
+        }
+    }
+    }
 }
