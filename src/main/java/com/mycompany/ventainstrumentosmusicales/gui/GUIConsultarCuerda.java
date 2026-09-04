@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 /**
  *
@@ -17,13 +18,16 @@ import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 public class GUIConsultarCuerda extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIConsultarCuerda.class.getName());
-
+    
+     private IServicioInstrumentos servicioInstrumentos;
+    
     /**
      * Creates new form GUIConsultarCuerda
      */
     public GUIConsultarCuerda() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
     }
 
     /**
@@ -222,8 +226,7 @@ public class GUIConsultarCuerda extends javax.swing.JFrame {
 
     try {
         int idConsulta = Integer.parseInt(idStr);
-        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-        
+       
         Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta); 
 
         if (inst != null && inst instanceof InstrumentoCuerda) {

@@ -9,6 +9,7 @@ import com.mycompany.ventainstrumentosmusicales.model.InstrumentoViento;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 
 /**
  *
@@ -18,12 +19,15 @@ public class GUIListarViento extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListarViento.class.getName());
 
+    private IServicioInstrumentos servicioInstrumentos;
+    
     /**
      * Creates new form GUIListarViento
      */
     public GUIListarViento() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
     }
 
     /**
@@ -102,7 +106,6 @@ public class GUIListarViento extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
     
-        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
         
         Map<Integer, Instrumento> instrumentos = servicioInstrumentos.getInstrumento();
     

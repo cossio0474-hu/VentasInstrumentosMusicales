@@ -6,6 +6,7 @@ package com.mycompany.ventainstrumentosmusicales.gui;
 
 import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -18,13 +19,15 @@ import javax.swing.JOptionPane;
 public class GUIEditarCuerda extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIEditarCuerda.class.getName());
-
+     private IServicioInstrumentos servicioInstrumentos;
     /**
      * Creates new form GUIEditarViento
      */
     public GUIEditarCuerda() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
+        
     }
 
     /**
@@ -231,8 +234,7 @@ public class GUIEditarCuerda extends javax.swing.JFrame {
 
     try {
         int idConsulta = Integer.parseInt(idStr);
-        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-        
+
         Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta); 
 
         if (inst != null && inst instanceof InstrumentoCuerda) {
@@ -304,9 +306,7 @@ public class GUIEditarCuerda extends javax.swing.JFrame {
 
         // Crear instancia con los nuevos datos específicos de cuerda
         InstrumentoCuerda cuerdaActualizado = new InstrumentoCuerda(idNuevo, nombre, fecha, precio, cuerdas, trastes);
-        
-        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-        
+     
         // Actualizar usando el servicio
         servicioInstrumentos.actualizarInstrumento(idOriginal, cuerdaActualizado);
         

@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * @author cossi
  */
-public interface IServicioInstrumento {
+public interface IServicioInstrumentos {
     
     public void addInstrumento(Instrumento instrumento);
     public Map<Integer, Instrumento> getInstrumento();

@@ -6,6 +6,7 @@ package com.mycompany.ventainstrumentosmusicales.gui;
 
 import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoViento;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -19,12 +20,15 @@ public class GUIEditarViento extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIEditarViento.class.getName());
 
+     private IServicioInstrumentos servicioInstrumentos;
+    
     /**
      * Creates new form GUIEditarViento
      */
     public GUIEditarViento() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
     }
 
     /**
@@ -229,8 +233,7 @@ public class GUIEditarViento extends javax.swing.JFrame {
 
         try {
             int idConsulta = Integer.parseInt(idStr);
-            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-
+          
             // Buscar el instrumento en el servicio
             Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta);
 
@@ -305,7 +308,6 @@ public class GUIEditarViento extends javax.swing.JFrame {
             // Crear instancia con los nuevos datos
             InstrumentoViento vientoActualizado = new InstrumentoViento(idNuevo, nombre, fecha, precio, llaves, boquilla);
 
-            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
             // Actualizar usando el servicio
             servicioInstrumentos.actualizarInstrumento(idOriginal, vientoActualizado);
 

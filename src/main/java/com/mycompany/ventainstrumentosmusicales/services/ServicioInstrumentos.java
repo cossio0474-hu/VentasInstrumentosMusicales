@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author cossi
  */
-public class ServicioInstrumentos implements IServicioInstrumento{
+public class ServicioInstrumentos implements IServicioInstrumentos{
     
     private  Map<Integer, Instrumento> instrumentos = new HashMap();
     

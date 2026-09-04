@@ -5,6 +5,7 @@
 package com.mycompany.ventainstrumentosmusicales.gui;
 
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -16,13 +17,15 @@ import javax.swing.JOptionPane;
 public class GUIAdicionarCuerda extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIAdicionarCuerda.class.getName());
-
+    
+     private IServicioInstrumentos servicioInstrumentos;
     /**
      * Creates new form GUIAdicionarInstrumentoCuerda
      */
     public GUIAdicionarCuerda() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
         
     }
 

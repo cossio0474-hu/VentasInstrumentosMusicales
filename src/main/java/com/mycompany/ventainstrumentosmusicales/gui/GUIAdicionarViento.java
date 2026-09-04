@@ -5,6 +5,7 @@
 package com.mycompany.ventainstrumentosmusicales.gui;
 
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoViento;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -16,13 +17,16 @@ import javax.swing.JOptionPane;
 public class GUIAdicionarViento extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIAdicionarViento.class.getName());
-
+    
+    private IServicioInstrumentos servicioInstrumentos;
+    
     /**
      * Creates new form GUIAdicionarInstrumentoViento
      */
     public GUIAdicionarViento() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
         
     }
 
@@ -250,8 +254,6 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
         // CONVERSIÓN DE DATOS
         id = Integer.parseInt(strId);
         
-        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-
         // VALIDAR ID DUPLICADO
         if (servicioInstrumentos.buscarInstrumento(id) != null) {
             JOptionPane.showMessageDialog(this,

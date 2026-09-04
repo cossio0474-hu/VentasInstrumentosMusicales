@@ -6,6 +6,7 @@ package com.mycompany.ventainstrumentosmusicales.gui;
 
 import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
 import javax.swing.JOptionPane;
 
@@ -17,12 +18,15 @@ public class GUIEliminarCuerda extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIEliminarCuerda.class.getName());
 
+     private IServicioInstrumentos servicioInstrumentos;
+    
     /**
      * Creates new form GUIEliminarCuerda
      */
     public GUIEliminarCuerda() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
     }
 
     /**
@@ -244,8 +248,7 @@ public class GUIEliminarCuerda extends javax.swing.JFrame {
 
         try {
             int idConsulta = Integer.parseInt(idStr);
-            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-
+           
             Instrumento inst = servicioInstrumentos.buscarInstrumento(idConsulta);
 
             if (inst != null && inst instanceof InstrumentoCuerda) {
@@ -286,8 +289,7 @@ public class GUIEliminarCuerda extends javax.swing.JFrame {
 
             int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
 
-            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-            
+           
             if (opcion == JOptionPane.YES_OPTION) {
                 servicioInstrumentos.deleteInstrumento(idOriginal);
 
@@ -319,8 +321,7 @@ public class GUIEliminarCuerda extends javax.swing.JFrame {
 
             int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas eliminar el instrumento con ID " + idOriginal + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
 
-            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-            
+           
             if (opcion == JOptionPane.YES_OPTION) {
                 servicioInstrumentos.deleteInstrumento(idOriginal);
 

@@ -6,6 +6,7 @@ package com.mycompany.ventainstrumentosmusicales.gui;
 
 import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
 import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
+import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
@@ -18,12 +19,15 @@ public class GUIListarCuerda extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListarCuerda.class.getName());
 
+     private IServicioInstrumentos servicioInstrumentos;
+    
     /**
      * Creates new form GUIListarCuerda
      */
     public GUIListarCuerda() {
         initComponents();
         setLocationRelativeTo(this);
+        servicioInstrumentos = ServicioInstrumentos.getInstancia();
     }
 
     /**
@@ -101,8 +105,7 @@ public class GUIListarCuerda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-      
-        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
+
         
         Map<Integer, Instrumento> instrumentos = servicioInstrumentos.getInstrumento();
         
