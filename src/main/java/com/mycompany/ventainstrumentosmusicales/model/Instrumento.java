@@ -78,10 +78,6 @@ public abstract class Instrumento {
         return precio;
     }
 
-    public void setPrecion(double precio) {
-        this.precio = precio;
-    }
-
     public LocalDate getFechaVenta() {
         return fechaVenta;
     }

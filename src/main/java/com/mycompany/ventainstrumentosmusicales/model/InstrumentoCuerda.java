@@ -5,6 +5,7 @@
 package com.mycompany.ventainstrumentosmusicales.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +15,7 @@ public class InstrumentoCuerda extends Instrumento{
     
     private int numeroCuerdas;
     private int numeroTrastes;
-    private AccesorioCuerda accesorio;
+    private ArrayList<AccesorioCuerda> accesorios;
     
     public InstrumentoCuerda(int id, String nombre, LocalDate fechaVenta, double precio, int numeroCuerdas, int numeroTrastes)throws Exception
     {
@@ -51,9 +52,25 @@ public class InstrumentoCuerda extends Instrumento{
             this.numeroTrastes =  numeroTrastes;
         } else {
             throw new Exception("Número de trastes menor a 0");
-        };
+        }
     }
     
+    public void addAccesorio(AccesorioCuerda accesorio)
+    {
+        accesorios.add(accesorio);
+    }
+    
+    public ArrayList<AccesorioCuerda> getAccesorio()
+    {
+        return accesorios;
+    }
+    
+    public void delAccesorio(AccesorioCuerda accesorio)
+    {
+        accesorios.remove(accesorio);
+    }
+    
+    @Override
     public double calcularPrecio()
     {
         return getPrecio() * 1.1;

@@ -64,6 +64,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuAyuda = new javax.swing.JMenu();
         menuItemAutores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        menuAccesoriosCuerda = new javax.swing.JMenu();
+        menuItemAdicionarAccesorioCuerda = new javax.swing.JMenuItem();
+        menuItemListarAccesoriosCuerda = new javax.swing.JMenuItem();
+        menuItemConsultarAccesorioCuerda = new javax.swing.JMenuItem();
+        menuItemEliminarAccesorioCuerda = new javax.swing.JMenuItem();
+        menuItemEditarAccesorioCuerda = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -259,6 +265,30 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAyuda);
 
+        menuAccesoriosCuerda.setText("AccesoriosCuerda");
+
+        menuItemAdicionarAccesorioCuerda.setText("Adicionar AccesorioCuerda");
+        menuItemAdicionarAccesorioCuerda.addActionListener(this::menuItemAdicionarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemAdicionarAccesorioCuerda);
+
+        menuItemListarAccesoriosCuerda.setText("Listar AccesoriosCuerda");
+        menuItemListarAccesoriosCuerda.addActionListener(this::menuItemListarAccesoriosCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemListarAccesoriosCuerda);
+
+        menuItemConsultarAccesorioCuerda.setText("Consultar AccesorioCuerda");
+        menuItemConsultarAccesorioCuerda.addActionListener(this::menuItemConsultarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemConsultarAccesorioCuerda);
+
+        menuItemEliminarAccesorioCuerda.setText("Eliminar AccesorioCuerda");
+        menuItemEliminarAccesorioCuerda.addActionListener(this::menuItemEliminarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemEliminarAccesorioCuerda);
+
+        menuItemEditarAccesorioCuerda.setText("Editar AccesorioCuerda");
+        menuItemEditarAccesorioCuerda.addActionListener(this::menuItemEditarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemEditarAccesorioCuerda);
+
+        jMenuBar1.add(menuAccesoriosCuerda);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -319,7 +349,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemConsultarCuerdaActionPerformed
 
     private void menuItemConsultarVientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultarVientoActionPerformed
-         GUIConsultarViento gui = new GUIConsultarViento();
+        GUIConsultarViento gui = new GUIConsultarViento();
         gui.setVisible(true);
     }//GEN-LAST:event_menuItemConsultarVientoActionPerformed
 
@@ -342,6 +372,26 @@ public class GUIPrincipal extends javax.swing.JFrame {
         GUIEditarViento gui = new GUIEditarViento();
         gui.setVisible(true);
     }//GEN-LAST:event_menuItemEditarVientoActionPerformed
+
+    private void menuItemListarAccesoriosCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarAccesoriosCuerdaActionPerformed
+        
+    }//GEN-LAST:event_menuItemListarAccesoriosCuerdaActionPerformed
+
+    private void menuItemConsultarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultarAccesorioCuerdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemConsultarAccesorioCuerdaActionPerformed
+
+    private void menuItemEliminarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarAccesorioCuerdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemEliminarAccesorioCuerdaActionPerformed
+
+    private void menuItemEditarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEditarAccesorioCuerdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemEditarAccesorioCuerdaActionPerformed
+
+    private void menuItemAdicionarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdicionarAccesorioCuerdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemAdicionarAccesorioCuerdaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,19 +435,25 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JMenu menuAccesoriosCuerda;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuAyuda;
     private javax.swing.JMenu menuInstrumentoCuerda;
     private javax.swing.JMenu menuInstrumentoViento;
+    private javax.swing.JMenuItem menuItemAdicionarAccesorioCuerda;
     private javax.swing.JMenuItem menuItemAdicionarCuerda;
     private javax.swing.JMenuItem menuItemAdicionarViento;
     private javax.swing.JMenuItem menuItemAutores;
+    private javax.swing.JMenuItem menuItemConsultarAccesorioCuerda;
     private javax.swing.JMenuItem menuItemConsultarCuerda;
     private javax.swing.JMenuItem menuItemConsultarViento;
+    private javax.swing.JMenuItem menuItemEditarAccesorioCuerda;
     private javax.swing.JMenuItem menuItemEditarInstrumentoCuerda;
     private javax.swing.JMenuItem menuItemEditarViento;
+    private javax.swing.JMenuItem menuItemEliminarAccesorioCuerda;
     private javax.swing.JMenuItem menuItemEliminarCuerda;
     private javax.swing.JMenuItem menuItemEliminarViento;
+    private javax.swing.JMenuItem menuItemListarAccesoriosCuerda;
     private javax.swing.JMenuItem menuItemListarCuerda;
     private javax.swing.JMenuItem menuItemListarViento;
     private javax.swing.JMenuItem menuItemSalir;

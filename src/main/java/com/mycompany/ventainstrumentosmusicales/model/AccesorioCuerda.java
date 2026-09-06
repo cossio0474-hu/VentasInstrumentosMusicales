@@ -21,22 +21,37 @@ public class AccesorioCuerda {
     private tipo tipo; 
     private double precio;
     private String marca;
-    private   ArrayList<InstrumentoCuerda> istrumentos;
+    private int idInstrumento;
     
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id) throws Exception {
+       if (id > 0) {
+            this.id = id;
+        } else {
+            throw new Exception("Id menor a 0");
+        }
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombre) throws Exception {
+        if(nombre.isEmpty())
+        {
+            throw new Exception ("No se puede crear un Accesorio sin un nombre");                 
+        }
+        else
+        {
+            this.nombre = nombre;
+        }
     }
 
     public void setTipo(tipo tipo) {
         this.tipo = tipo;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setPrecio(double precio) throws Exception {
+        if (precio > 0) {
+            this.precio = precio;
+        } else {
+            throw new Exception("Precio menor o igual a 0");
+        }
     }
 
     public void setMarca(String marca) {
@@ -58,12 +73,27 @@ public class AccesorioCuerda {
     public double getPrecio() {
         return precio;
     }
+    
+    public void setIdINstrumento(int id) throws Exception
+    {
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new Exception("Id menor a 0");
+        }
+    }
+    
+    public int getIdInstrumento()
+    {
+        return idInstrumento;
+    }
 
-    public AccesorioCuerda(int id, String nombre, tipo tipo, double precio, String marca) {
-        this.id = id;
-        this.nombre = nombre;
+    public AccesorioCuerda(int id, String nombre, tipo tipo, double precio, String marca, int idInstrumento) throws Exception {
+        setId(id);
+        setIdINstrumento(id);
+        setNombre(nombre);
         this.tipo = tipo;
-        this.precio = precio;
+        setPrecio(precio);
         this.marca = marca;
     }
 

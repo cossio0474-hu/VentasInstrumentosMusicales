@@ -150,6 +150,53 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="menuAccesoriosCuerda">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="AccesoriosCuerda"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemAdicionarAccesorioCuerda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Adicionar AccesorioCuerda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemAdicionarAccesorioCuerdaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemListarAccesoriosCuerda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar AccesoriosCuerda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemListarAccesoriosCuerdaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemConsultarAccesorioCuerda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Consultar AccesorioCuerda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemConsultarAccesorioCuerdaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemEliminarAccesorioCuerda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar AccesorioCuerda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemEliminarAccesorioCuerdaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemEditarAccesorioCuerda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Editar AccesorioCuerda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemEditarAccesorioCuerdaActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
