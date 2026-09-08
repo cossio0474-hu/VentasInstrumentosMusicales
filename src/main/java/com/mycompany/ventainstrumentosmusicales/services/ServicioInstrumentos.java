@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ServicioInstrumentos implements IServicioInstrumentos {
 
-    private Map<Integer, Instrumento> instrumentos = new HashMap();
+      private Map<Integer, Instrumento> instrumentos = new HashMap();
     private Map<Integer, AccesorioCuerda> accesorios = new HashMap<>();
 
     // Única instancia de la clase
@@ -89,87 +89,132 @@ public class ServicioInstrumentos implements IServicioInstrumentos {
         return sum;
     }
 
-    public void addAccesorioCuerda(AccesorioCuerda accesorio) throws Exception {
+    /**
+     * Suma las ventas de los instrumentos de cuerda. El cálculo es
+     * polimórfico: se apoya en calcularPrecio(), que InstrumentoCuerda
+     * sobrescribe con su propia fórmula (precio * 1.1).
+     */
+    public double calcularVentasInstrumentoCuerda() {
+        double sum = 0;
         for (Instrumento instrumento : instrumentos.values()) {
-            if (instrumento != null && instrumento.getId() == accesorio.getIdInstrumento()) {
-                if (instrumento instanceof InstrumentoCuerda) {
-                    InstrumentoCuerda ins = (InstrumentoCuerda) instrumento;
-                    ins.addAccesorio(accesorio);
-                    instrumentos.remove(accesorio.getIdInstrumento());
-                    instrumentos.put(accesorio.getIdInstrumento(), ins);
-                    accesorios.put(accesorio.getId(), accesorio);
-                } else {
-                    throw new Exception("No se ha encontrado el instrumento de cuerda");
-                }
+            if (instrumento instanceof InstrumentoCuerda) {
+                sum += instrumento.calcularPrecio();
             }
-
         }
+        return sum;
+    }
+
+    /**
+     * Suma las ventas de los instrumentos de viento. El cálculo es
+     * polimórfico: se apoya en calcularPrecio(), que InstrumentoViento
+     * sobrescribe con su propia fórmula (precio * 1.2).
+     */
+    public double calcularVentasInstrumentoViento() {
+        double sum = 0;
+        for (Instrumento instrumento : instrumentos.values()) {
+            if (instrumento instanceof InstrumentoViento) {
+                sum += instrumento.calcularPrecio();
+            }
+        }
+        return sum;
+    }
+
+    /**
+     * Suma el precio de todos los accesorios de cuerda registrados,
+     * independientemente del instrumento al que estén asignados.
+     */
+    public double calcularVentasAccesoriosCuerda() {
+        double sum = 0;
+        for (AccesorioCuerda accesorio : accesorios.values()) {
+            if (accesorio != null) {
+                sum += accesorio.getPrecio();
+            }
+        }
+        return sum;
+    }
+
+    /**
+     * Venta total: instrumentos de cuerda + instrumentos de viento +
+     * accesorios de cuerda.
+     */
+    public double calcularVentasTotales() {
+        return calcularVentasInstrumentoCuerda()
+                + calcularVentasInstrumentoViento()
+                + calcularVentasAccesoriosCuerda();
+    }
+
+    public void addAccesorioCuerda(AccesorioCuerda accesorio) throws Exception {
+        if (accesorios.containsKey(accesorio.getId())) {
+            throw new Exception("Ya existe un accesorio registrado con el ID " + accesorio.getId());
+        }
+
+        Instrumento instrumento = buscarInstrumento(accesorio.getIdInstrumento());
+        if (instrumento == null) {
+            throw new Exception("No existe ningún instrumento con el ID " + accesorio.getIdInstrumento());
+        }
+        if (!(instrumento instanceof InstrumentoCuerda)) {
+            throw new Exception("El instrumento con ID " + accesorio.getIdInstrumento() + " no es un instrumento de cuerda");
+        }
+
+        InstrumentoCuerda ins = (InstrumentoCuerda) instrumento;
+        ins.addAccesorio(accesorio);
+        accesorios.put(accesorio.getId(), accesorio);
+        ServicioObserver.cambio();
     }
 
     public void delAccesorioCuerda(int idAccesorio) throws Exception {
-        if (accesorios.values() != null) {
-            AccesorioCuerda accesorio = accesorios.get(idAccesorio);
-
-            for (Instrumento instrumento : instrumentos.values()) {
-                if (instrumento != null && instrumento.getId() == accesorio.getIdInstrumento()) {
-                    if (instrumento instanceof InstrumentoCuerda) {
-                        InstrumentoCuerda ins = (InstrumentoCuerda) instrumento;
-                        ins.delAccesorio(accesorio);
-                        instrumentos.remove(accesorio.getIdInstrumento());
-                        instrumentos.put(accesorio.getIdInstrumento(), ins);
-                        accesorios.remove(idAccesorio);
-                    } else {
-                        throw new Exception("No se ha encontrado el instrumento de cuerda");
-                    }
-                }
-
-            }
-
+        AccesorioCuerda accesorio = accesorios.get(idAccesorio);
+        if (accesorio == null) {
+            throw new Exception("No existe ningún accesorio con el ID " + idAccesorio);
         }
 
-    }
-    
-    public AccesorioCuerda buscarAccesorioCuerda(int idAccesorio)
-    {
-        AccesorioCuerda acc = null;
-
-        for (AccesorioCuerda accesorio : accesorios.values()) {
-            if (accesorio != null && accesorio.getId() == idAccesorio) {
-                acc = accesorio;
-            }
-
+        Instrumento instrumento = buscarInstrumento(accesorio.getIdInstrumento());
+        if (instrumento instanceof InstrumentoCuerda) {
+            ((InstrumentoCuerda) instrumento).delAccesorio(accesorio);
         }
-        return acc;
-    }
-    
-    public void actualizarAccesorio(int idAccesorio, AccesorioCuerda accesorio) throws Exception
-    {
-        if (accesorios.values() != null) {
-            
-            AccesorioCuerda acc = accesorios.get(idAccesorio);
-            
-            for (Instrumento instrumento : instrumentos.values()) {
-                if (instrumento != null && instrumento.getId() == acc.getIdInstrumento()) {
-                    if (instrumento instanceof InstrumentoCuerda) {
-                        InstrumentoCuerda ins = (InstrumentoCuerda) instrumento;
-                        ins.delAccesorio(acc);
-                        ins.addAccesorio(accesorio);
-                        instrumentos.remove(acc.getIdInstrumento());
-                        instrumentos.put(acc.getIdInstrumento(), ins);
-                        accesorios.remove(idAccesorio);
-                        accesorios.put(idAccesorio, accesorio);
-                    } else {
-                        throw new Exception("No se ha encontrado el instrumento de cuerda");
-                    }
-                }
 
-            }
-           
-        }
+        accesorios.remove(idAccesorio);
+        ServicioObserver.cambio();
     }
-    
-    public Map<Integer, AccesorioCuerda> getAccesorios()
-    {
-         return Map.copyOf(accesorios);
+
+    public AccesorioCuerda buscarAccesorioCuerda(int idAccesorio) {
+        return accesorios.get(idAccesorio);
+    }
+
+    public void actualizarAccesorio(int idAccesorio, AccesorioCuerda accesorioNuevo) throws Exception {
+        AccesorioCuerda accesorioActual = accesorios.get(idAccesorio);
+        if (accesorioActual == null) {
+            throw new Exception("No existe ningún accesorio con el ID " + idAccesorio);
+        }
+
+        Instrumento instrumentoNuevo = buscarInstrumento(accesorioNuevo.getIdInstrumento());
+        if (instrumentoNuevo == null) {
+            throw new Exception("No existe ningún instrumento con el ID " + accesorioNuevo.getIdInstrumento());
+        }
+        if (!(instrumentoNuevo instanceof InstrumentoCuerda)) {
+            throw new Exception("El instrumento con ID " + accesorioNuevo.getIdInstrumento() + " no es un instrumento de cuerda");
+        }
+
+        // Si el nuevo ID de accesorio ya existe y es distinto del actual, no permitir duplicados
+        if (accesorioNuevo.getId() != idAccesorio && accesorios.containsKey(accesorioNuevo.getId())) {
+            throw new Exception("Ya existe un accesorio registrado con el ID " + accesorioNuevo.getId());
+        }
+
+        // Se retira el accesorio actual de su instrumento de cuerda original
+        Instrumento instrumentoActual = buscarInstrumento(accesorioActual.getIdInstrumento());
+        if (instrumentoActual instanceof InstrumentoCuerda) {
+            ((InstrumentoCuerda) instrumentoActual).delAccesorio(accesorioActual);
+        }
+
+        // Se agrega el accesorio actualizado a su instrumento de cuerda (puede ser el mismo u otro)
+        ((InstrumentoCuerda) instrumentoNuevo).addAccesorio(accesorioNuevo);
+
+        accesorios.remove(idAccesorio);
+        accesorios.put(accesorioNuevo.getId(), accesorioNuevo);
+        ServicioObserver.cambio();
+    }
+
+    public Map<Integer, AccesorioCuerda> getAccesorios() {
+        return Map.copyOf(accesorios);
     }
 }

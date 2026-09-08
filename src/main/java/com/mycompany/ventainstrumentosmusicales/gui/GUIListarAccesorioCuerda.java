@@ -5,9 +5,6 @@
 package com.mycompany.ventainstrumentosmusicales.gui;
 
 import com.mycompany.ventainstrumentosmusicales.model.AccesorioCuerda;
-import com.mycompany.ventainstrumentosmusicales.model.Instrumento;
-import com.mycompany.ventainstrumentosmusicales.model.InstrumentoCuerda;
-import com.mycompany.ventainstrumentosmusicales.services.IServicioInstrumentos;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import com.mycompany.ventainstrumentosmusicales.services.ServicioInstrumentos;
@@ -17,16 +14,16 @@ import com.mycompany.ventainstrumentosmusicales.services.ServicioObserver;
  *
  * @author User
  */
-public class GUIListarCuerda extends javax.swing.JFrame implements ICambiable{
+public class GUIListarAccesorioCuerda extends javax.swing.JFrame implements ICambiable{
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListarCuerda.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListarAccesorioCuerda.class.getName());
 
-     private IServicioInstrumentos servicioInstrumentos;
+     private ServicioInstrumentos servicioInstrumentos;
     
     /**
      * Creates new form GUIListarCuerda
      */
-    public GUIListarCuerda() {
+    public GUIListarAccesorioCuerda() {
         initComponents();
         setLocationRelativeTo(this);
         servicioInstrumentos = ServicioInstrumentos.getInstancia();
@@ -60,16 +57,19 @@ public class GUIListarCuerda extends javax.swing.JFrame implements ICambiable{
 
         tblInstrumentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "FechaVenta", "Precio", "Numero de Cuerdas", "Numero de Trastes", "Accesorio"
+                "ID", "Nombre", "Tipo", "Precio", "Marca", "ID Instrumento"
             }
         ));
         jScrollPane1.setViewportView(tblInstrumentos);
+        if (tblInstrumentos.getColumnModel().getColumnCount() > 0) {
+            tblInstrumentos.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         btnListar.setBackground(new java.awt.Color(255, 153, 0));
         btnListar.setText("Listar");
@@ -115,56 +115,32 @@ public class GUIListarCuerda extends javax.swing.JFrame implements ICambiable{
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
 
-        
-        Map<Integer, Instrumento> instrumentos = servicioInstrumentos.getInstrumento();
+        Map<Integer, AccesorioCuerda> accesorios = servicioInstrumentos.getAccesorios();
         
         DefaultTableModel modelo = (DefaultTableModel) tblInstrumentos.getModel();
         modelo.setRowCount(0); 
         
-        for (Map.Entry<Integer, Instrumento> inst : instrumentos.entrySet()) {
-            Integer cedula = inst.getKey();
-            Instrumento instrumentoActual = inst.getValue();
-            
-            // Validamos que el instrumento sea específicamente de Cuerda
-            if (instrumentoActual instanceof InstrumentoCuerda) {
-                InstrumentoCuerda doc = (InstrumentoCuerda) instrumentoActual;
- 
-                Object[] fila = new Object[]{
-                    cedula,
-                    doc.getNombre(), 
-                    doc.getFechaVenta(),
-                    doc.getPrecio(),
-                    doc.getNumeroCuerdas(),
-                    doc.getNumeroTrastes(),
-                    obtenerNombresAccesorios(doc)
-                };
- 
-                modelo.addRow(fila);
-            }
+        for (Map.Entry<Integer, AccesorioCuerda> entry : accesorios.entrySet()) {
+            AccesorioCuerda accesorio = entry.getValue();
+
+            Object[] fila = new Object[]{
+                accesorio.getId(),
+                accesorio.getNombre(),
+                accesorio.getTipo(),
+                accesorio.getPrecio(),
+                accesorio.getMarca(),
+                accesorio.getIdInstrumento()
+            };
+
+            modelo.addRow(fila);
         }
-  
 
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
       ServicioObserver.delGUIInstrumento(this);
     }//GEN-LAST:event_formWindowClosed
-    private String obtenerNombresAccesorios(InstrumentoCuerda instrumento) {
-        java.util.List<AccesorioCuerda> accesorios = instrumento.getAccesorio();
- 
-        if (accesorios == null || accesorios.isEmpty()) {
-            return "";
-        }
- 
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < accesorios.size(); i++) {
-            if (i > 0) {
-                sb.append(", ");
-            }
-            sb.append(accesorios.get(i).getNombre());
-        }
-        return sb.toString();
-    }
+
     /**
      * @param args the command line arguments
      */
@@ -187,7 +163,7 @@ public class GUIListarCuerda extends javax.swing.JFrame implements ICambiable{
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIListarCuerda().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GUIListarAccesorioCuerda().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -199,31 +175,24 @@ public class GUIListarCuerda extends javax.swing.JFrame implements ICambiable{
 
     @Override
     public void cambio() {
-   Map<Integer, Instrumento> instrumentos = servicioInstrumentos.getInstrumento();
-        
+        Map<Integer, AccesorioCuerda> accesorios = servicioInstrumentos.getAccesorios();
+
         DefaultTableModel modelo = (DefaultTableModel) tblInstrumentos.getModel();
         modelo.setRowCount(0); 
         
-        for (Map.Entry<Integer, Instrumento> inst : instrumentos.entrySet()) {
-            Integer cedula = inst.getKey();
-            Instrumento instrumentoActual = inst.getValue();
-            
-            // Validamos que el instrumento sea específicamente de Cuerda
-            if (instrumentoActual instanceof InstrumentoCuerda) {
-                InstrumentoCuerda doc = (InstrumentoCuerda) instrumentoActual;
- 
-                Object[] fila = new Object[]{
-                    cedula,
-                    doc.getNombre(), 
-                    doc.getFechaVenta(),
-                    doc.getPrecio(),
-                    doc.getNumeroCuerdas(),
-                    doc.getNumeroTrastes(),
-                    obtenerNombresAccesorios(doc)
-                };
- 
-                modelo.addRow(fila);
-            }
+        for (Map.Entry<Integer, AccesorioCuerda> entry : accesorios.entrySet()) {
+            AccesorioCuerda accesorio = entry.getValue();
+
+            Object[] fila = new Object[]{
+                accesorio.getId(),
+                accesorio.getNombre(),
+                accesorio.getTipo(),
+                accesorio.getPrecio(),
+                accesorio.getMarca(),
+                accesorio.getIdInstrumento()
+            };
+
+            modelo.addRow(fila);
         }
   }
 }

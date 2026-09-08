@@ -15,7 +15,7 @@ public class InstrumentoCuerda extends Instrumento{
     
     private int numeroCuerdas;
     private int numeroTrastes;
-    private ArrayList<AccesorioCuerda> accesorios;
+    private ArrayList<AccesorioCuerda> accesorios = new ArrayList<>();
     
     public InstrumentoCuerda(int id, String nombre, LocalDate fechaVenta, double precio, int numeroCuerdas, int numeroTrastes)throws Exception
     {

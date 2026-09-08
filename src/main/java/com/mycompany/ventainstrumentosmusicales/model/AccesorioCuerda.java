@@ -74,10 +74,10 @@ public class AccesorioCuerda {
         return precio;
     }
     
-    public void setIdINstrumento(int id) throws Exception
+    public void setIdINstrumento(int idInstrumento) throws Exception
     {
-        if (id > 0) {
-            this.id = id;
+        if (idInstrumento > 0) {
+            this.idInstrumento = idInstrumento;
         } else {
             throw new Exception("Id menor a 0");
         }
@@ -90,7 +90,7 @@ public class AccesorioCuerda {
 
     public AccesorioCuerda(int id, String nombre, tipo tipo, double precio, String marca, int idInstrumento) throws Exception {
         setId(id);
-        setIdINstrumento(id);
+        setIdINstrumento(idInstrumento);
         setNombre(nombre);
         this.tipo = tipo;
         setPrecio(precio);

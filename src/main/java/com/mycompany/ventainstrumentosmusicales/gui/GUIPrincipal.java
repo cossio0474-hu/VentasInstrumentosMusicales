@@ -55,21 +55,24 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemConsultarCuerda = new javax.swing.JMenuItem();
         menuItemEliminarCuerda = new javax.swing.JMenuItem();
         menuItemEditarInstrumentoCuerda = new javax.swing.JMenuItem();
-        menuInstrumentoViento = new javax.swing.JMenu();
-        menuItemAdicionarViento = new javax.swing.JMenuItem();
-        menuItemListarViento = new javax.swing.JMenuItem();
-        menuItemConsultarViento = new javax.swing.JMenuItem();
-        menuItemEliminarViento = new javax.swing.JMenuItem();
-        menuItemEditarViento = new javax.swing.JMenuItem();
-        menuAyuda = new javax.swing.JMenu();
-        menuItemAutores = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         menuAccesoriosCuerda = new javax.swing.JMenu();
         menuItemAdicionarAccesorioCuerda = new javax.swing.JMenuItem();
         menuItemListarAccesoriosCuerda = new javax.swing.JMenuItem();
         menuItemConsultarAccesorioCuerda = new javax.swing.JMenuItem();
         menuItemEliminarAccesorioCuerda = new javax.swing.JMenuItem();
         menuItemEditarAccesorioCuerda = new javax.swing.JMenuItem();
+        menuInstrumentoViento = new javax.swing.JMenu();
+        menuItemAdicionarViento = new javax.swing.JMenuItem();
+        menuItemListarViento = new javax.swing.JMenuItem();
+        menuItemConsultarViento = new javax.swing.JMenuItem();
+        menuItemEliminarViento = new javax.swing.JMenuItem();
+        menuItemEditarViento = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        MenuItemVerVentas = new javax.swing.JMenuItem();
+        menuAyuda = new javax.swing.JMenu();
+        menuItemAutores = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -227,7 +230,35 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemEditarInstrumentoCuerda.addActionListener(this::menuItemEditarInstrumentoCuerdaActionPerformed);
         menuInstrumentoCuerda.add(menuItemEditarInstrumentoCuerda);
 
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Agregar Accesorio");
+        menuInstrumentoCuerda.add(jCheckBoxMenuItem1);
+
         jMenuBar1.add(menuInstrumentoCuerda);
+
+        menuAccesoriosCuerda.setText("AccesoriosCuerda");
+
+        menuItemAdicionarAccesorioCuerda.setText("Adicionar AccesorioCuerda");
+        menuItemAdicionarAccesorioCuerda.addActionListener(this::menuItemAdicionarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemAdicionarAccesorioCuerda);
+
+        menuItemListarAccesoriosCuerda.setText("Listar AccesoriosCuerda");
+        menuItemListarAccesoriosCuerda.addActionListener(this::menuItemListarAccesoriosCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemListarAccesoriosCuerda);
+
+        menuItemConsultarAccesorioCuerda.setText("Consultar AccesorioCuerda");
+        menuItemConsultarAccesorioCuerda.addActionListener(this::menuItemConsultarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemConsultarAccesorioCuerda);
+
+        menuItemEliminarAccesorioCuerda.setText("Eliminar AccesorioCuerda");
+        menuItemEliminarAccesorioCuerda.addActionListener(this::menuItemEliminarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemEliminarAccesorioCuerda);
+
+        menuItemEditarAccesorioCuerda.setText("Editar AccesorioCuerda");
+        menuItemEditarAccesorioCuerda.addActionListener(this::menuItemEditarAccesorioCuerdaActionPerformed);
+        menuAccesoriosCuerda.add(menuItemEditarAccesorioCuerda);
+
+        jMenuBar1.add(menuAccesoriosCuerda);
 
         menuInstrumentoViento.setText("InstrumentoViento");
 
@@ -253,6 +284,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuInstrumentoViento);
 
+        jMenu1.setText("Calcular Ventas");
+
+        MenuItemVerVentas.setText("Ver Ventas");
+        MenuItemVerVentas.addActionListener(this::MenuItemVerVentasActionPerformed);
+        jMenu1.add(MenuItemVerVentas);
+
+        jMenuBar1.add(jMenu1);
+
         menuAyuda.setText("Ayuda");
 
         menuItemAutores.setText("Autores");
@@ -264,30 +303,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuAyuda.add(jMenuItem1);
 
         jMenuBar1.add(menuAyuda);
-
-        menuAccesoriosCuerda.setText("AccesoriosCuerda");
-
-        menuItemAdicionarAccesorioCuerda.setText("Adicionar AccesorioCuerda");
-        menuItemAdicionarAccesorioCuerda.addActionListener(this::menuItemAdicionarAccesorioCuerdaActionPerformed);
-        menuAccesoriosCuerda.add(menuItemAdicionarAccesorioCuerda);
-
-        menuItemListarAccesoriosCuerda.setText("Listar AccesoriosCuerda");
-        menuItemListarAccesoriosCuerda.addActionListener(this::menuItemListarAccesoriosCuerdaActionPerformed);
-        menuAccesoriosCuerda.add(menuItemListarAccesoriosCuerda);
-
-        menuItemConsultarAccesorioCuerda.setText("Consultar AccesorioCuerda");
-        menuItemConsultarAccesorioCuerda.addActionListener(this::menuItemConsultarAccesorioCuerdaActionPerformed);
-        menuAccesoriosCuerda.add(menuItemConsultarAccesorioCuerda);
-
-        menuItemEliminarAccesorioCuerda.setText("Eliminar AccesorioCuerda");
-        menuItemEliminarAccesorioCuerda.addActionListener(this::menuItemEliminarAccesorioCuerdaActionPerformed);
-        menuAccesoriosCuerda.add(menuItemEliminarAccesorioCuerda);
-
-        menuItemEditarAccesorioCuerda.setText("Editar AccesorioCuerda");
-        menuItemEditarAccesorioCuerda.addActionListener(this::menuItemEditarAccesorioCuerdaActionPerformed);
-        menuAccesoriosCuerda.add(menuItemEditarAccesorioCuerda);
-
-        jMenuBar1.add(menuAccesoriosCuerda);
 
         setJMenuBar(jMenuBar1);
 
@@ -374,24 +389,34 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemEditarVientoActionPerformed
 
     private void menuItemListarAccesoriosCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarAccesoriosCuerdaActionPerformed
-        
+        GUIListarAccesorioCuerda gui = new GUIListarAccesorioCuerda();
+        gui.setVisible(true);
     }//GEN-LAST:event_menuItemListarAccesoriosCuerdaActionPerformed
 
     private void menuItemConsultarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultarAccesorioCuerdaActionPerformed
-        // TODO add your handling code here:
+        GUIConsultarAccesorioCuerda gui = new GUIConsultarAccesorioCuerda();
+        gui.setVisible(true);
     }//GEN-LAST:event_menuItemConsultarAccesorioCuerdaActionPerformed
 
     private void menuItemEliminarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarAccesorioCuerdaActionPerformed
-        // TODO add your handling code here:
+        GUIEliminarAccesorioCuerda gui = new GUIEliminarAccesorioCuerda();
+        gui.setVisible(true);
     }//GEN-LAST:event_menuItemEliminarAccesorioCuerdaActionPerformed
 
     private void menuItemEditarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEditarAccesorioCuerdaActionPerformed
-        // TODO add your handling code here:
+        GUIEditarAccesorioCuerda gui = new GUIEditarAccesorioCuerda();
+        gui.setVisible(true);
     }//GEN-LAST:event_menuItemEditarAccesorioCuerdaActionPerformed
 
     private void menuItemAdicionarAccesorioCuerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdicionarAccesorioCuerdaActionPerformed
-        // TODO add your handling code here:
+       GUIAdicionarAccesorioCuerda gui = new GUIAdicionarAccesorioCuerda();
+        gui.setVisible(true);
     }//GEN-LAST:event_menuItemAdicionarAccesorioCuerdaActionPerformed
+
+    private void MenuItemVerVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemVerVentasActionPerformed
+        GUICalcularVentas gui = new GUICalcularVentas();
+        gui.setVisible(true);
+    }//GEN-LAST:event_MenuItemVerVentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,6 +444,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuItemVerVentas;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -428,6 +455,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
