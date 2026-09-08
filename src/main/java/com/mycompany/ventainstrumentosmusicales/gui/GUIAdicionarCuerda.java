@@ -45,7 +45,6 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtFechaVenta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -53,7 +52,7 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtNumeroTrastes = new javax.swing.JTextField();
         btnAdicionar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        txtFechaVenta = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIAdicionarInstrumentoCuerda");
@@ -86,10 +85,6 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addActionListener(this::btnAdicionarActionPerformed);
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setText("Ejemplo: Año-Mes-Dia");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,12 +101,12 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtId)
                             .addComponent(txtNombre)
-                            .addComponent(txtFechaVenta)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(83, 83, 83)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -119,14 +114,13 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnAdicionar)
                                 .addGap(99, 99, 99)))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(62, 62, 62))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,19 +135,17 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
                             .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(txtNumeroCuerdas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7)
                                 .addComponent(txtNumeroTrastes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8)))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,42 +173,48 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         int id;
-        String Nombre;
+        String nombre;
         LocalDate fechaVenta;
         double precio;
         int numeroCuerdas;
         int numeroTrastes;
 
-        try {
-            String strId = txtId.getText().trim();
-            String nombre = txtNombre.getText().trim();
-            String strFechaVenta = txtFechaVenta.getText().trim();
-            String strPrecio = txtPrecio.getText().trim();
-            String strNumeroCuerdas = txtNumeroCuerdas.getText().trim();
-            String strNumeroTrastes = txtNumeroTrastes.getText().trim();
-            
-            id = Integer.parseInt(strId);
-            
-            ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
-            
-            if (servicioInstrumentos.buscarInstrumento(id) != null) {
-                JOptionPane.showMessageDialog(this, "Error: Ya existe un instrumento registrado con el ID " + id, "ID Duplicado", JOptionPane.WARNING_MESSAGE);
-                return; 
-            }
-
-            id = Integer.parseInt(strId);
-            fechaVenta = LocalDate.parse(strFechaVenta);
-            precio = Double.parseDouble(strPrecio);
-            numeroCuerdas = Integer.parseInt(strNumeroCuerdas);
-            numeroTrastes = Integer.parseInt(strNumeroTrastes);
-
-            InstrumentoCuerda ins = new InstrumentoCuerda(id, nombre, fechaVenta, precio, numeroCuerdas, numeroTrastes);
-            servicioInstrumentos.addInstrumento(ins);
-            JOptionPane.showMessageDialog(this, "Instrumento de cuerda creado!");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e);
+    try {
+        String strId = txtId.getText().trim();
+        nombre = txtNombre.getText().trim();
+        String strPrecio = txtPrecio.getText().trim();
+        String strNumeroCuerdas = txtNumeroCuerdas.getText().trim();
+        String strNumeroTrastes = txtNumeroTrastes.getText().trim();
+        
+        id = Integer.parseInt(strId);
+        
+        ServicioInstrumentos servicioInstrumentos = ServicioInstrumentos.getInstancia();
+        
+        if (servicioInstrumentos.buscarInstrumento(id) != null) {
+            JOptionPane.showMessageDialog(this, "Error: Ya existe un instrumento registrado con el ID " + id, "ID Duplicado", JOptionPane.WARNING_MESSAGE);
+            return; 
         }
+
+        
+        java.util.Date utilDate = txtFechaVenta.getDate();
+        if (utilDate == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione una fecha válida.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        fechaVenta = utilDate.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+        precio = Double.parseDouble(strPrecio);
+        numeroCuerdas = Integer.parseInt(strNumeroCuerdas);
+        numeroTrastes = Integer.parseInt(strNumeroTrastes);
+
+        InstrumentoCuerda ins = new InstrumentoCuerda(id, nombre, fechaVenta, precio, numeroCuerdas, numeroTrastes);
+        servicioInstrumentos.addInstrumento(ins);
+        JOptionPane.showMessageDialog(this, "Instrumento de cuerda creado!");
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Error: Verifique que los campos numéricos contengan valores válidos.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     /**
@@ -253,9 +251,8 @@ public class GUIAdicionarCuerda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtFechaVenta;
+    private com.toedter.calendar.JDateChooser txtFechaVenta;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroCuerdas;

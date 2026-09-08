@@ -46,7 +46,6 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtFechaVenta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -54,7 +53,7 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtTipoBoquilla = new javax.swing.JTextField();
         btnAdicionar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        txtFechaVenta = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GUIAdicionarInstrumentoViento");
@@ -87,10 +86,6 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addActionListener(this::btnAdicionarActionPerformed);
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setText("Ejemplo: Año-Mes-Dia");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,9 +101,9 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                     .addComponent(txtNombre)
-                    .addComponent(txtFechaVenta)
-                    .addComponent(txtPrecio))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPrecio)
+                    .addComponent(txtFechaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,11 +115,9 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
                             .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdicionar)
                         .addGap(99, 99, 99)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGap(68, 68, 68))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(jLabel1)
@@ -150,13 +143,11 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7)
                                 .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(33, 33, 33)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8)))
-                        .addGap(36, 36, 36))
+                            .addComponent(jLabel4)
+                            .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdicionar)
@@ -191,7 +182,7 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
     try {
         String strId = txtId.getText().trim();
         String nombre = txtNombre.getText().trim();
-        String strFechaVenta = txtFechaVenta.getText().trim();
+        java.util.Date utilDate = txtFechaVenta.getDate();
         String strPrecio = txtPrecio.getText().trim();
         String strNumeroLlaves = txtNumeroLlaves.getText().trim();
         String strTipoBoquilla = txtTipoBoquilla.getText().trim();
@@ -215,14 +206,11 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
             return;
         }
 
-        if (strFechaVenta.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Debe ingresar la fecha de venta.",
-                    "Campo obligatorio",
-                    JOptionPane.WARNING_MESSAGE);
-            txtFechaVenta.requestFocus();
-            return;
-        }
+       if (utilDate == null) {
+                JOptionPane.showMessageDialog(this, "Por favor, seleccione una fecha válida.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+           
 
         if (strPrecio.isEmpty()) {
             JOptionPane.showMessageDialog(this,
@@ -264,7 +252,7 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
             return;
         }
 
-        fechaVenta = LocalDate.parse(strFechaVenta);
+        fechaVenta = utilDate.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
         precio = Double.parseDouble(strPrecio);
         numeroLlaves = Integer.parseInt(strNumeroLlaves);
         tipoBoquilla = strTipoBoquilla;
@@ -340,9 +328,8 @@ public class GUIAdicionarViento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtFechaVenta;
+    private com.toedter.calendar.JDateChooser txtFechaVenta;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroLlaves;
