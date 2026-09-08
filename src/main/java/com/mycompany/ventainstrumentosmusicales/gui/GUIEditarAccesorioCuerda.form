@@ -102,8 +102,8 @@
                               <Component id="txtNombre" alignment="0" pref="169" max="32767" attributes="0"/>
                               <Component id="txtPrecio" alignment="0" pref="169" max="32767" attributes="0"/>
                               <Component id="txtNumeroLlaves" alignment="0" pref="169" max="32767" attributes="0"/>
-                              <Component id="txtTipoBoquilla" alignment="0" pref="169" max="32767" attributes="0"/>
                               <Component id="ComboBoxTipo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtIdInstrumento" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -156,12 +156,12 @@
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNumeroLlaves" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTipoBoquilla" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtIdInstrumento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="btnEditar1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="58" max="32767" attributes="0"/>
               </Group>
@@ -278,11 +278,6 @@
             <Property name="text" type="java.lang.String" value="ID Instrumento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTipoBoquilla">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoBoquillaActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="btnEditar1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -306,6 +301,14 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtIdInstrumento">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f2" green="f2" red="f2" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Aun no encontrada"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

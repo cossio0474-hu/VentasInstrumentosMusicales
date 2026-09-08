@@ -55,7 +55,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemConsultarCuerda = new javax.swing.JMenuItem();
         menuItemEliminarCuerda = new javax.swing.JMenuItem();
         menuItemEditarInstrumentoCuerda = new javax.swing.JMenuItem();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         menuAccesoriosCuerda = new javax.swing.JMenu();
         menuItemAdicionarAccesorioCuerda = new javax.swing.JMenuItem();
         menuItemListarAccesoriosCuerda = new javax.swing.JMenuItem();
@@ -229,10 +228,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuItemEditarInstrumentoCuerda.setText("Editar InstrumentoCuerda");
         menuItemEditarInstrumentoCuerda.addActionListener(this::menuItemEditarInstrumentoCuerdaActionPerformed);
         menuInstrumentoCuerda.add(menuItemEditarInstrumentoCuerda);
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Agregar Accesorio");
-        menuInstrumentoCuerda.add(jCheckBoxMenuItem1);
 
         jMenuBar1.add(menuInstrumentoCuerda);
 
@@ -445,7 +440,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuItemVerVentas;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

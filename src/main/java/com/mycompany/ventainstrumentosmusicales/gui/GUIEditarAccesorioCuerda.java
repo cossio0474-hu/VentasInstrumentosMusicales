@@ -53,9 +53,9 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtNumeroLlaves = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtTipoBoquilla = new javax.swing.JTextField();
         btnEditar1 = new javax.swing.JButton();
         ComboBoxTipo = new javax.swing.JComboBox<>();
+        txtIdInstrumento = new javax.swing.JLabel();
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ID:");
@@ -113,13 +113,14 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ID Instrumento:");
 
-        txtTipoBoquilla.addActionListener(this::txtTipoBoquillaActionPerformed);
-
         btnEditar1.setBackground(new java.awt.Color(255, 153, 0));
         btnEditar1.setText("Guardar cambios");
         btnEditar1.addActionListener(this::btnEditar1ActionPerformed);
 
         ComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CUERDAFROTADA", "CUERDAPULSADA" }));
+
+        txtIdInstrumento.setForeground(new java.awt.Color(242, 242, 242));
+        txtIdInstrumento.setText("Aun no encontrada");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,8 +150,8 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                             .addComponent(txtNumeroLlaves, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(ComboBoxTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(ComboBoxTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtIdInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jLabel1)))
@@ -190,11 +191,11 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtNumeroLlaves, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtTipoBoquilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                    .addComponent(txtIdInstrumento))
+                .addGap(50, 50, 50)
                 .addComponent(btnEditar1)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -240,13 +241,13 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
             ComboBoxTipo.setSelectedItem(accesorio.getTipo().toString());
             txtPrecio.setText(String.valueOf(accesorio.getPrecio()));
             txtNumeroLlaves.setText(accesorio.getMarca());
-            txtTipoBoquilla.setText(String.valueOf(accesorio.getIdInstrumento()));
+            txtIdInstrumento.setText(String.valueOf(accesorio.getIdInstrumento()));
             
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró ningún accesorio de cuerda con ese ID.", "No Encontrado", JOptionPane.ERROR_MESSAGE);
             // Limpiar los campos 
             lblId1.setText(""); txtNombre.setText(""); ComboBoxTipo.setSelectedIndex(0);
-            txtPrecio.setText(""); txtNumeroLlaves.setText(""); txtTipoBoquilla.setText("");
+            txtPrecio.setText(""); txtNumeroLlaves.setText(""); txtIdInstrumento.setText("");
         }
         
     } catch (NumberFormatException e) {
@@ -268,10 +269,6 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroLlavesActionPerformed
 
-    private void txtTipoBoquillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoBoquillaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoBoquillaActionPerformed
-
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -292,7 +289,7 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
         String strTipo = (String) ComboBoxTipo.getSelectedItem();
         double precio = Double.parseDouble(txtPrecio.getText().trim());
         String marca = txtNumeroLlaves.getText().trim();
-        int idInstrumento = Integer.parseInt(txtTipoBoquilla.getText().trim());
+        int idInstrumento = Integer.parseInt(txtIdInstrumento.getText().trim());
  
         AccesorioCuerda.tipo tipoAccesorio;
         try {
@@ -361,9 +358,9 @@ public class GUIEditarAccesorioCuerda extends javax.swing.JFrame {
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblId1;
     private javax.swing.JTextField txtConsulta;
+    private javax.swing.JLabel txtIdInstrumento;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroLlaves;
     private javax.swing.JTextField txtPrecio;
-    private javax.swing.JTextField txtTipoBoquilla;
     // End of variables declaration//GEN-END:variables
 }
