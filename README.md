@@ -7,4 +7,5 @@
 
 ## Diagrama Casos de uso
 
-<img width="900" height="900" alt="6d1fc2d0-b682-4be4-b774-2212381163c4" src="https://github.com/user-attachments/assets/ed0f3682-6b7a-45e8-a3d7-cad0f5784afa" />
+<img width="900" height="1200" alt="diagrama_casos_uso_venta_instrumentos_actualizado" src="https://github.com/user-attachments/assets/53184eeb-8209-4cee-b32d-8f117393bc4a" />
+
