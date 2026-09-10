@@ -2,7 +2,8 @@
 
 ## Diagrama de clases
 
-<img width="1000" height="1000" alt="WhatsApp Image 2026-09-10 at 15 48 22" src="https://github.com/user-attachments/assets/2df62880-c7d4-441c-8c33-a8e8b425451b" />
+<img width="1200" height="1200" alt="diagrama_corregido" src="https://github.com/user-attachments/assets/f4a6c215-fa11-48a7-861f-446da163281a" />
+
 
 ## Diagrama Casos de uso
 
